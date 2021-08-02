@@ -57,27 +57,23 @@ module.exports = {
     },
     // 多语言支持
     locales: {
-      '/en/': {
-        label: 'English',
-        selectText: 'Languages',
-        ariaLabel: 'Select language',
-        editLinkText: 'Edit this page on GitHub',
-        lastUpdated: 'Last Updated',
-        nav: require('./nav/en'),
-        sidebar: {
-          '/en/guide/': getGuideSidebar('Guide', 'Advanced'),
-        }
-      },
       '/': {
         label: '简体中文',
         selectText: '选择语言',
         ariaLabel: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
-        nav: require('./nav/zh'),
-        sidebar: {
-          '/guide/': getGuideSidebar('指南', '深入'),
-        }
+      },
+      '/en/': {
+        label: 'English',
+        selectText: 'Languages',
+        ariaLabel: 'Select language',
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last Updated',
+        // nav: require('./nav/en'),
+        // sidebar: {
+        //   '/en/guide/': getGuideSidebar('Guide', 'Advanced'),
+        // }
       }
     }
   },
