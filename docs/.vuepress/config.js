@@ -1,23 +1,21 @@
 module.exports = {
   title: 'originjs',
   description: 'Just playing around',
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      title: 'originjs',
+      description: 'description balabala'
+    },
+    '/en/': {
+      lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
+      title: 'originjs',
+      description: 'description balabala'
+    }
+  },
   themeConfig: {
     // logo: '/assets/img/logo.png',
-    // 头部导航栏内容
-    nav: [
-      { text: '指南', link: '/guide/' },
-      { text: 'foo', link: '/foo/' },
-      { text: 'bar', link: '/bar/' },
-      {
-        text: '选择语言',
-        ariaLabel: 'Language Menu',
-        items: [
-          { text: '简体中文', link: '/' },
-          { text: 'English', link: '/en/' }
-        ]
-      },
-      { text: 'GitHub', link: 'https://github.com/originjs' },
-    ],
+    repo: 'originjs',
     // 多语言支持
     locales: {
       '/': {
@@ -26,26 +24,37 @@ module.exports = {
         ariaLabel: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
+        // 头部导航栏内容
+        nav: [
+          { text: '指南', link: '/guide/' },
+          { text: 'foo', link: '/foo/' },
+          { text: 'bar', link: '/bar/' }
+        ],
         // 侧边栏
         sidebar: {
           '/foo/': [
-            '',     /* /foo/ */
-            'one',  /* /foo/one.html */
-            'two'   /* /foo/two.html */
+            // '',     /* /foo/ */
+            ['', 'README'],
+            // 'one',  /* /foo/one.html */
+            ['/foo/one', 'one'],
+            // 'two'   /* /foo/two.html */
+            ['/foo/two', 'two'],
           ],
 
           '/bar/': [
             {
               title: 'bar 1',   // 必要的
-              path: '/foo/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+              path: '/bar/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
               collapsable: false, // 可选的, 默认值是 true,
               sidebarDepth: 1,    // 可选的, 默认值是 1
               children: [
                 // '/',
-                '',      /* /bar/ */
-                'three', /* /bar/three.html */
-                ['/bar/four', 'four']
+                // '',      /* /bar/ */
+                ['', 'README'],
+                // 'three', /* /bar/three.html */
+                ['/bar/three', 'three'],
                 // 'four'   /* /bar/four.html */
+                ['/bar/four', 'four']
               ]
             },
             {
@@ -71,8 +80,20 @@ module.exports = {
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
         // nav: require('./nav/en'),
+        nav: [
+          { text: 'Guide', link: '/en/guide/' },
+          { text: 'foo', link: '/en/foo/' }
+        ],
         sidebar: {
-          '/en/guide/': getGuideSidebar('groupA', 'groupA'),
+          '/en/foo/': [
+            // '',     /* /foo/ */
+            ['', 'README'],
+            // 'one',  /* /foo/one.html */
+            ['/foo/one', 'one'],
+            // 'two'   /* /foo/two.html */
+            ['/foo/two', 'two'],
+          ],
+          '/en/guide/': getGuideSidebar('groupA', 'groupB'),
         }
       }
     }
@@ -86,15 +107,14 @@ function getGuideSidebar (groupA, groupB) {
       collapsable: false,
       children: [
         '',
-        'README3'
+        'README2'
       ]
     },
     {
       title: groupB,
       collapsable: false,
       children: [
-        '',
-        'README2'
+        'README3'
       ]
     }
   ]
