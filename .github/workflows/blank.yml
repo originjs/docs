@@ -26,8 +26,15 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Install dep
         run: |
-          npm i
-          sh deploy.sh
+          rm -rf node_modules
+          npm install
+
+      - name: Run deploy script
+        env:
+            ACCESS_TOKEN_DEPLOY: ${{secrets.VUE_DOCS_ZH_CN_TOKEN}}
+        # sh deploy.sh
+        run: 
+          bash ./deploy.sh
           
