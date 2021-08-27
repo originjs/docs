@@ -14,6 +14,9 @@ cd docs/.vuepress/dist
 
 git init
 git add -A
+git config user.name "${GITHUB_ACTOR}"
+git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
