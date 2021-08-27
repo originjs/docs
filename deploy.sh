@@ -23,10 +23,12 @@ if [ -n "${ACCESS_TOKEN_DEPLOY}" ]; then
     remote_repo="git@github.com:${PUBLISH_REPOSITORY}.git"
 fi
 
-git init
-git add -A
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git config --global init.defaultBranch main
+
+git init
+git add -A
 
 git commit -m 'deploy'
 
