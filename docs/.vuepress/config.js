@@ -1,6 +1,7 @@
 module.exports = {
   title: 'originjs',
   description: 'Just playing around',
+  basse:'/docs/',
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -15,7 +16,7 @@ module.exports = {
   },
   themeConfig: {
     // logo: '/assets/img/logo.png',
-    repo: 'originjs',
+    // repo: 'originjs',
     // 多语言支持
     locales: {
       '/': {
