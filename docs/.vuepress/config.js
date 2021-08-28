@@ -1,7 +1,7 @@
 module.exports = {
   title: 'originjs',
   description: 'Just playing around',
-  basse:'/docs/',
+  base: '/docs/',
   locales: {
     '/': {
       lang: 'zh-CN',
