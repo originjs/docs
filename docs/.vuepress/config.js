@@ -1,5 +1,8 @@
 module.exports = {
   title: 'originjs',
+  head: [
+    ['link', { rel: 'icon', href: '/assets/img/logo.png' }]
+  ],
   description: 'Just playing around',
   base: '/docs/',
   locales: {
