@@ -4,7 +4,6 @@ module.exports = {
     ['link', { rel: 'icon', href: '/assets/img/logo.png' }]
   ],
   description: 'Just playing around',
-  base: '/docs/',
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -21,61 +20,71 @@ module.exports = {
     // logo: '/assets/img/logo.png',
     // repo: 'originjs',
     // 多语言支持
+    docsDir: 'docs',
     locales: {
       '/': {
         label: '简体中文',
-        selectText: '选择语言',
+        selectText: '选择语言',  
         ariaLabel: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
         // 头部导航栏内容
         nav: [
           { text: '指南', link: '/guide/' },
-          { text: 'foo', link: '/foo/' },
+          { text: '更新记录', link: 'https://github.com/originjs/origin.js/releases' },
           { text: 'bar', link: '/bar/' }
         ],
         // 侧边栏
-        sidebar: {
-          '/foo/': [
-            // '',     /* /foo/ */
-            ['', 'README'],
-            // 'one',  /* /foo/one.html */
-            ['/foo/one', 'one'],
-            // 'two'   /* /foo/two.html */
-            ['/foo/two', 'two'],
-          ],
-
-          '/bar/': [
-            {
-              title: 'bar 1',   // 必要的
-              path: '/bar/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-              collapsable: false, // 可选的, 默认值是 true,
-              sidebarDepth: 1,    // 可选的, 默认值是 1
-              children: [
-                // '/',
-                // '',      /* /bar/ */
-                ['', 'README'],
-                // 'three', /* /bar/three.html */
-                ['/bar/three', 'three'],
-                // 'four'   /* /bar/four.html */
-                ['/bar/four', 'four']
-              ]
-            },
-            {
-              title: 'bar 2',
-              children: [ /* ... */],
-              initialOpenGroupIndex: -1 // 可选的, 默认值是 0
-            }
-          ],
-
-          // fallback
-          '/': [
-            '',        /* / */
-            'contact', /* /contact.html */
-            // 'about'    /* /about.html */
-            ['/about', 'Explicit link text']
-          ]
-        },
+        sidebar: [
+          {
+            title: '介绍',
+            collapsable: false,
+            children: [
+              {
+                title: '安装',
+                path: '/installation'
+              },
+              {
+                title: '开始',
+                path: '/guide/'
+              },
+            ]
+          },
+          {
+            title: 'CLI',
+            collapsable: false,
+            children: [
+              {
+                title: '开始',
+                path: '/guide/origin.js/'
+              },
+            ]
+          },
+          {
+            title: '插件',
+            collapsable: false,
+            children: [
+              {
+                title: 'webpack-to-vite',
+                path: '/guide/plugins/webpack-to-vite/'
+              },
+              {
+                title: 'vite-plugin-pages',
+                path: '/guide/plugins/vite-plugin-pages/'
+              }
+            ]
+          },
+          {
+            title: '工具',
+            collapsable: false,
+            children: [
+              {
+                title: 'vue-codemod',
+                path: '/guide/tools/vue-codemod/'
+              },
+            ]
+          }
+        ]
       },
       '/en/': {
         label: 'English',
