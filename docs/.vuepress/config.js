@@ -66,8 +66,12 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: 'webpack-to-vite',
-                path: '/guide/plugins/webpack-to-vite/'
+                title: 'vite-plugin-assets',
+                path: '/guide/plugins/vite-plugin-assets/'
+              },
+              {
+                title: 'vite-plugin-content',
+                path: '/guide/plugins/vite-plugin-content/'
               },
               {
                 title: 'vite-plugin-pages',
@@ -81,7 +85,25 @@ module.exports = {
             children: [
               {
                 title: 'vue-codemod',
-                path: '/guide/tools/vue-codemod/'
+                collapsable: false,
+                children: [
+                  {
+                    title: '使用指导',
+                    path: '/guide/tools/vue-codemod/'
+                  },
+                  {
+                    title: '手动迁移指导',
+                    path: '/guide/tools/vue-codemod/manual-guide'
+                  },
+                  {
+                    title: '典型实践',
+                    path: '/guide/tools/vue-codemod/typical-case'
+                  },
+                ]
+              },
+              {
+                title: 'webpack-to-vite',
+                path: '/guide/tools/webpack-to-vite/'
               },
             ]
           }
@@ -96,19 +118,82 @@ module.exports = {
         // nav: require('./nav/en'),
         nav: [
           { text: 'Guide', link: '/en/guide/' },
-          { text: 'foo', link: '/en/foo/' }
+          { text: 'Realease Notes', link: 'https://github.com/originjs/origin.js/releases' },
+          { text: 'bar', link: '/en/bar/' }
         ],
-        sidebar: {
-          '/en/foo/': [
-            // '',     /* /foo/ */
-            ['', 'README'],
-            // 'one',  /* /foo/one.html */
-            ['/foo/one', 'one'],
-            // 'two'   /* /foo/two.html */
-            ['/foo/two', 'two'],
-          ],
-          '/en/guide/': getGuideSidebar('groupA', 'groupB'),
-        }
+        // 侧边栏
+        sidebar: [
+          {
+            title: 'Introduction',
+            collapsable: false,
+            children: [
+              {
+                title: 'Installation',
+                path: '/en/installation'
+              },
+              {
+                title: 'Getting Started',
+                path: '/en/guide/'
+              },
+            ]
+          },
+          {
+            title: 'CLI',
+            collapsable: false,
+            children: [
+              {
+                title: 'Getting Started',
+                path: '/en/guide/origin.js/'
+              },
+            ]
+          },
+          {
+            title: 'Plugins',
+            collapsable: false,
+            children: [
+              {
+                title: 'vite-plugin-assets',
+                path: '/en/guide/plugins/vite-plugin-assets/'
+              },
+              {
+                title: 'vite-plugin-content',
+                path: '/en/guide/plugins/vite-plugin-content/'
+              },
+              {
+                title: 'vite-plugin-pages',
+                path: '/en/guide/plugins/vite-plugin-pages/'
+              }
+            ]
+          },
+          {
+            title: 'Tools',
+            collapsable: false,
+            children: [
+              {
+                title: 'vue-codemod',
+                collapsable: false,
+                children: [
+                  {
+                    title: 'Intruduction Guide',
+                    path: '/en/guide/tools/vue-codemod/'
+                  },
+                  {
+                    title: 'Manual Guide',
+                    path: '/en/guide/tools/vue-codemod/manual-guide'
+                  },
+                  {
+                    title: 'Typical Case',
+                    path: '/en/guide/tools/vue-codemod/typical-case'
+                  },
+                ]
+              },
+              {
+                title: 'webpack-to-vite',
+                path: '/en/guide/tools/webpack-to-vite/'
+              },
+            ]
+          }
+        ]
       }
     }
   },

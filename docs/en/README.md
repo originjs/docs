@@ -6,7 +6,7 @@ tagline: Hero English
 actionText: More →
 actionLink: /en/guide/
 features:
-- title: English
+- title: Origin.js
   details: 以 Markdown English
 - title: Vue驱动
   details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
