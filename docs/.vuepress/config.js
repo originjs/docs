@@ -66,8 +66,12 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: 'webpack-to-vite',
-                path: '/guide/plugins/webpack-to-vite/'
+                title: 'vite-plugin-assets',
+                path: '/guide/plugins/vite-plugin-assets/'
+              },
+              {
+                title: 'vite-plugin-content',
+                path: '/guide/plugins/vite-plugin-content/'
               },
               {
                 title: 'vite-plugin-pages',
@@ -81,7 +85,25 @@ module.exports = {
             children: [
               {
                 title: 'vue-codemod',
-                path: '/guide/tools/vue-codemod/'
+                collapsable: false,
+                children: [
+                  {
+                    title: '使用指导',
+                    path: '/guide/tools/vue-codemod/'
+                  },
+                  {
+                    title: '手动迁移指导',
+                    path: '/guide/tools/vue-codemod/manual-guide'
+                  },
+                  {
+                    title: '典型实践',
+                    path: '/guide/tools/vue-codemod/typical-case'
+                  },
+                ]
+              },
+              {
+                title: 'webpack-to-vite',
+                path: '/guide/tools/webpack-to-vite/'
               },
             ]
           }
