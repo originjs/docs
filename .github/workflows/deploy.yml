@@ -20,7 +20,7 @@ jobs:
 
       - name: Generate docs
         run: |
-          npm run build
+          npm run docs:build
 
       - name: Run deploy script
         if: success()
