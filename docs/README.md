@@ -5,7 +5,7 @@ heroText: originjs
 tagline: 简单而强大的 Vue.js 应用框架
 actionText: 快速上手 →
 actionLink: /installation
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: MulanPSL2 Licensed | Copyright © 2021-present originjs
 # navbar: false
 ---
 
