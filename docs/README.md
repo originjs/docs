@@ -2,21 +2,15 @@
 home: true
 heroImage: /assets/img/logo.png
 heroText: originjs
-tagline: Hero 副标题
+tagline: 简单而强大的 Vue.js 应用框架
 actionText: 快速上手 →
 actionLink: /installation
-features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
 footer: MIT Licensed | Copyright © 2018-present Evan You
 # navbar: false
 ---
 
-# TODO
-* 配置文件没有热更新
-<!-- * 侧边栏无法显示 -->
-<!-- * 导航栏显示不全 -->
+originjs 提供一整套基于 Vue.js 的 web 项目解决方案
+
+* 提供约定式 web 框架
+* 提供 webpack 转 vite 的转换工具
+* 提供 Vue 2 升 Vue 3 的迁移工具

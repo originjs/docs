@@ -32,8 +32,7 @@ module.exports = {
         // 头部导航栏内容
         nav: [
           { text: '指南', link: '/guide/' },
-          { text: '更新记录', link: 'https://github.com/originjs/origin.js/releases' },
-          { text: 'bar', link: '/bar/' }
+          { text: '更新记录', link: 'https://github.com/originjs/origin.js/releases' }
         ],
         // 侧边栏
         sidebar: [
@@ -119,7 +118,6 @@ module.exports = {
         nav: [
           { text: 'Guide', link: '/en/guide/' },
           { text: 'Realease Notes', link: 'https://github.com/originjs/origin.js/releases' },
-          { text: 'bar', link: '/en/bar/' }
         ],
         // 侧边栏
         sidebar: [
@@ -199,22 +197,4 @@ module.exports = {
   },
 }
 
-function getGuideSidebar (groupA, groupB) {
-  return [
-    {
-      title: groupA,
-      collapsable: false,
-      children: [
-        '',
-        'README2'
-      ]
-    },
-    {
-      title: groupB,
-      collapsable: false,
-      children: [
-        'README3'
-      ]
-    }
-  ]
-}
+
