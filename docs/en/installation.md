@@ -1,4 +1,4 @@
-# intallation
+# installation
 
 ## Direct Download
 
