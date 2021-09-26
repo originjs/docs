@@ -75,6 +75,10 @@ module.exports = {
               {
                 title: 'vite-plugin-pages',
                 path: '/guide/plugins/vite-plugin-pages/'
+              },
+              {
+                title: 'vite-plugin-federation',
+                path: '/guide/plugins/vite-plugin-federation/'
               }
             ]
           },
@@ -160,6 +164,10 @@ module.exports = {
               {
                 title: 'vite-plugin-pages',
                 path: '/en/guide/plugins/vite-plugin-pages/'
+              },
+              {
+                title: 'vite-plugin-federation',
+                path: '/en/guide/plugins/vite-plugin-federation/'
               }
             ]
           },
