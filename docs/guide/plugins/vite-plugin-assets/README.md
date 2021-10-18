@@ -2,7 +2,7 @@
 
 `CSS`, `SASS`, `LESS` files named starting with `global-` are automatically added to the vite global style
 
-## Install
+## 安装
 
 ```shell
 npm install @originjs/vite-plugin-assets --save-dev
@@ -14,7 +14,7 @@ or
 yarn add @originjs/vite-plugin-assets --dev
 ```
 
-## Usage
+## 使用
 
 add `@originjs/vite-plugin-assets` in `vite.config.js`.
 
@@ -30,7 +30,7 @@ export default {
 }
 ```
 
-### Options
+### 选项
 
 - `sourcePath`
 

@@ -2,7 +2,7 @@
 
 Automate generate route config for Vue components in pages directory, and support layouts in the same time
 
-## Features
+## 特性
 
 - component which name starts with `_` is dynamic page
 - component which name starts with `$` is nested route
@@ -10,7 +10,7 @@ Automate generate route config for Vue components in pages directory, and suppor
 - default layout will be applied to every Vue component in pages direcotry
 - custom layout will only be applied to Vue component has set layout property in layout block
 
-## Install
+## 安装
 
 ```shell
 npm install @originjs/vite-plugin-pages --save-dev
@@ -22,7 +22,7 @@ or
 yarn add @originjs/vite-plugin-pages --dev
 ```
 
-## Usage
+## 使用
 
 First, add `@originjs/vite-plugin-pages` in `vite.config.js`.
 

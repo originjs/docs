@@ -2,7 +2,7 @@
 
 Convert `yaml`, `xml`, `xlsx`, `ini`, `toml`, `csv`, `plist` and `properties` files to ES6 modules.
 
-## Features
+## 特性
 
 - The files are read using `UTF-8` encoding.
 - `yaml` files transformed by `js-yaml`.
@@ -14,7 +14,7 @@ Convert `yaml`, `xml`, `xlsx`, `ini`, `toml`, `csv`, `plist` and `properties` fi
 - `properties` files transformed by `plist`.
 - 'xlsx' files transformed by `sheetjs`
 
-## Install
+## 安装
 
 ```shell
 npm install @originjs/vite-plugin-content --save-dev
@@ -26,7 +26,7 @@ or
 yarn add @originjs/vite-plugin-content --dev
 ```
 
-## Usage
+## 使用
 
 First, add `@originjs/vite-plugin-content` in `vite.config.js`.
 
