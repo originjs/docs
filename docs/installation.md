@@ -11,13 +11,13 @@
 ## NPM
 
 ```bash
-npm install @originjs/origin.js --save
+npm install -g @originjs/cli
 ```
 
 ## Yarn
 
 ```bash
-yarn add @originjs/origin.js
+yarn global add @originjs/cli
 ```
 
 ## 开发构建
