@@ -22,7 +22,7 @@ module.exports = {
     // github相关链接配置
     repo: 'originjs',
     docsRepo: 'originjs/docs',
-    docsBranch: 'master',
+    docsBranch: 'main',
     editLinks: true,
 
     // 多语言支持
