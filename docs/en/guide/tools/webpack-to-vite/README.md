@@ -1,57 +1,62 @@
 # webpack-to-vite
 
-convert a webpack project to a vite project
+Convert a Webpack project to a Vite project.
+
+> It has been offically included, [detail](https://github.com/vitejs/awesome-vite#migrations).
 
 ## Quick Start
 
-1. download
-```
-git clone https://github.com/originjs/webpack-to-vite.git
-cd webpack-to-vite
-```
-2. install
+Use it directly with npx:
 
-with npm, run
 ```
-npm install
-npm run build
-```
-with yarn, run
-```
-yarn
-yarn build
-```
-3. convert
-```
-node ./bin/index -d <project path>
+$ npx @originjs/webpack-to-vite <project path>
 ```
 
-## Demos
+or install it globally:
 
-The following is a list of projects that successfully converted from a webpack project to a vite project using the tool
+```
+$ npm install @originjs/webpack-to-vite -g
+$ webpack-to-vite <project path>
+```
+
+> Note: the default conversion is vue-cli project. Pass in the `-t webpack` option to convert a Webpack project.
+
+## Options
+
+The CLI provides the following options:
+
+```
+-v, --version            display version number
+-d --rootDir <path>      the directory of project to be converted
+-t --projectType <type>  the type of the project, use vue-cli or webpack (default: vue-cli)
+-e --entry <type>        entrance of the entire build process, webpack or vite will start from those entry files to build, if no entry file is specified, src/main.ts or src/main.js will be used as default
+-h, --help               display help for command
+```
+
+## Awesome projects successfully converted
+
+The following is a list of projects that successfully converted from a webpack Project to a Vite project using the tool.
+
+### demos
 
 - [helloworld-vue2](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-vue2)
 - [helloworld-vue3](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-vue3)
 - [helloworld-webpack](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-webpack)
-- [vue-manage-system-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-manage-system-vite)
-- [newbee-mall-vue3-app-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/newbee-mall-vue3-app-vite)
-- [vue-realworld-example-app-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-realworld-example-app-vite)
-- [vue-uploader-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-uploader-vite)
-- [douban-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/douban-vite)
-
-## Awesome projects successfully converted
 
 ### vue-cli
+
 - [vue-manage-system](https://github.com/lin-xin/vue-manage-system) -> [vue-manage-system-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-manage-system-vite)
 - [newbee-mall-vue3-app](https://github.com/newbee-ltd/newbee-mall-vue3-app) -> [newbee-mall-vue3-app-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/newbee-mall-vue3-app-vite)
 - [vue-realworld-example-app](https://github.com/gothinkster/vue-realworld-example-app) -> [vue-realworld-example-app-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-realworld-example-app-vite)
 
 ### webpack
+
 - [vue-uploader](https://github.com/simple-uploader/vue-uploader) -> [vue-uploader-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-uploader-vite)
 - [douban](https://github.com/jeneser/douban) -> [douban-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/douban-vite)
 
 ## Conversion items
-The following is a list of configuration items that need to convert
+
+The following is a list of configuration items that need to convert.
 
 Legend of annotations:
 
@@ -62,6 +67,7 @@ Legend of annotations:
 |❌|not support now|
 
 ### Base conversion
+
 * ✅ B01: add necessary devDependencies and dependencies in `package.json`
   * necessary: `vite-plugin-env-compatible`, `vite-plugin-html`, `vite`,
   * necessary for Vue2: `vite-plugin-vue2`
@@ -75,9 +81,10 @@ Legend of annotations:
   * necessary for Vue2: `vite-plugin-vue2`, we set `{ jsx: true }` option to enable `jsx` support by default
   * necessary for Vue3: `@vitejs/plugin-vue`, `@vitejs/plugin-vue-jsx`
 * ✅ B05: imports that omit `.vue` extension is supported
-  * If the `resolve.extensions` is set to be `['.mjs','.js','.ts','.jsx','.tsx','.json ','.vue']`, in `vite.config.js`,
+  * ~~If the `resolve.extensions` is set to be `['.mjs','.js','.ts','.jsx','.tsx','.json ','.vue']`, in `vite.config.js`,
     then you may encounter errors like '[Problems caused by using alisaes and omitting file suffixes at the same time](https://github.com/vitejs/vite/issues/3532)'.
-    We use a patch to fix this issue, in case of vite didn't accept relate PR
+    We use a patch to fix this issue, in case of vite didn't accept relate PR~~
+    fixed since vite released version `^2.5.0`
 * ✅ B06: `sass` is supported
   * if `node-sass` is used in dependency, then we'll convert it to `sass` to dependencies
 * ✅ B07: `postcss 8` is supported
@@ -115,15 +122,17 @@ Legend of annotations:
   ```
 
 ### Vue-CLI conversion
-> Vue-CLI conversion is based on `vue.config.js`. Configurations will be transformed and written to `vite.config.js`
 
+> Vue-CLI conversion is based on `vue.config.js`. Configurations will be transformed and written to `vite.config.js`. 
 * ✅ V01: base public path
   * `process.env.PUBLIC_URL` or `publicPath` or `baseUrl` -> `base`
 * ✅ V02: css options
   * `css.loaderOptions` -> `css.preprocessorOptions`
   * `css.loaderOptions.less.lessOptions.modifyVars` -> `css.preprocessorOptions.less.modifyVars`
-  * with only `css.loaderOptions.sass` option is set, it will be converted to `css.preprocessorOptions.sass` and `css.preprocessorOptions.sass`.
-    The `sass` configuration influence both `sass` and `scss` in Vue-CLI while vite need to configure them respectively
+  * The `sass` configuration will influence both `sass` and `scss` in Vue-CLI, but in vite we need to configure them respectively. 
+    So with only `css.loaderOptions.sass` option is set in Vue-CLI, it will be converted to `css.preprocessorOptions.sass` and `css.preprocessorOptions.scss`.
+    On the other hand, with only `css.loaderOptions.scss` option is set in Vue-CLI, it will be converted to `css.preprocessorOptions.scss`.
+
 * ✅ V03: server options
   * `server.strictPort = false` is set by default
   * `process.env.PORT` or `devServer.port` -> `server.port`
@@ -150,7 +159,7 @@ Legend of annotations:
   * extract variable names in jsp scriptlet tags
   * `VUE_APP_VARIABLE` -> `process.env['VUE_APP_VARIABLE']`
 * ✅ V07: css automatic imports
-  * if 'style-resources-loader' is used to load css processor resources, the `pluginOptions.'style-resources-loader'`. Configurations will be transformed and written to `css.preprocessorOptions`
+  * if 'style-resources-loader' is used to load css preprocessor resources, which is `pluginOptions['style-resources-loader']`. Configurations will be transformed and written to `css.preprocessorOptions`
   ```javascript
   pluginOptions: {
     'style-resources-loader': {
@@ -174,10 +183,8 @@ Legend of annotations:
   ```
   
 ### Webpack conversion
-> Webpack conversion is based on `webpack.config.js` or `webpack.base.js/webpack.dev.js/webpack.prod.js` or `webpack.build.js/webpack.production.js`, map configuration to `vite.config.js`
-
-> Note: if you are not using configuration files above, you need to convert configurations manually
-
+> Webpack conversion is based on `webpack.config.js` or `webpack.base.js/webpack.dev.js/webpack.prod.js` or `webpack.build.js/webpack.production.js`, map configuration to `vite.config.js`.
+> Note: if you are not using configuration files above, you need to convert configurations manually.
 * ✅ W01: build entry options
   * if `entry` is `string` type: `entry` -> `build.rollupOptions.input`
   * if `entry` is `object` type: the properties of `entry` will be converted set to `build.rollupOptions.input`
@@ -204,6 +211,75 @@ Legend of annotations:
 * ⚠️ O01: for CommonJS syntax, e.g. `require('./')`
   * you can use vite plugin `@originjs/vite-plugin-commonjs`, see also [here](https://github.com/originjs/vite-plugins/tree/main/packages/vite-plugin-commonjs).
     Please note that the plugin only supports part of CommonJS syntax. That means some syntax is not supported. You need to covert them to ES Modules syntax manually
+  * convert dynamic require(e.g. `require('@assets/images/' + options.src)`), you can refer to the following steps:
+  1. use Web API `new URL`
+  ```vue
+  <template>
+  <img alt="" :src="imgSrc" />
+  </template>
+  <script>
+  export default {
+  name: 'img',
+  data: () => ({
+    imgSrc: new URL('./assets/logo.png', import.meta.url).href
+  })
+  }
+  </script>
+  ```
+  ...or use Vite's API `import.meta.glob`
+  1. create a Model to save the imported modules, use async methods to dynamically import the modules and update them to the Model
+  ```js
+  // src/store/index.js
+  import Vue from 'vue'
+  import Vuex from 'vuex'
+  const assets = import.meta.glob('../assets/**')
+  Vue.use(Vuex)
+  export default new Vuex.Store({
+    state: {
+      assets: {}
+    },
+    mutations: {
+      setAssets(state, data) {
+        state.assets = Object.assign({}, state.assets, data)
+      }
+    },
+    actions: {
+      async getAssets({ commit }, url) {
+        const getAsset = assets[url]
+        if (!getAsset) {
+          commit('setAssets', { [url]: ''})
+        } else {
+          const asset = await getAsset()
+          commit('setAssets', { [url]: asset.default })
+        }
+      }
+    }
+  })
+  ```
+  2. use in `.vue` SFC
+  ```js
+  // img1.vue
+  <template>
+    <img :src="$store.state.assets['../assets/images/' + options.src]" />
+  </template>
+  <script>
+  export default {
+    name: "img1",
+    props: {
+      options: Object
+    },
+    watch: {
+      'options.src': {
+        handler (val) {
+          this.$store.dispatch('getAssets', `../assets/images/${val}`)
+        },
+        immediate: true,
+        deep: true
+      }
+    }
+  }
+  </script>
+  ```
 * ❌ O02: for `Element-UI`, see also [here](https://github.com/vitejs/vite/issues/3370)
   ```
    [vite] Uncaught TypeError: Cannot read property '$isServer' of undefined
@@ -275,3 +351,6 @@ Legend of annotations:
   ```javascript
   () => import('./components/views/test.vue')
   ```
+* ⚠️ O09: if you encountered build error `[rollup-plugin-dynamic-import-variables] Unexpected token`, you need to remove empty attr `srcset` or `srcset=""` in `<img>` label.
+* ⚠️ O10: Vite can't resolve some static asset, e.g. `.PNG`, you can put it in `assetsInclude` option like `assetsInclude: ['**.PNG']`
+* ⚠️ O11: support `.md` markdown file as vue component, you need to add [`vite-plugin-md`](https://github.com/antfu/vite-plugin-md) plugin.

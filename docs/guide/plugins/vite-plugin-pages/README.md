@@ -1,30 +1,30 @@
 # vite-plugin-pages
 
-Automate generate route config for Vue components in pages directory, and support layouts in the same time
+为 `pages` 目录中的 Vue 组件自动生成路由配置，同时支持布局的 Vite 插件。
 
-## 特性
-
-- component which name starts with `_` is dynamic page
-- component which name starts with `$` is nested route
-- component which name is `_` will catch the error page
-- default layout will be applied to every Vue component in pages direcotry
-- custom layout will only be applied to Vue component has set layout property in layout block
+- 以 `_` 开头命名的组件为动态页面
+- 以 `$` 开头命名的组件为嵌套路由
+- 文件名为 `_` 的组件为错误捕获页面
+- 默认布局将被应用至 `pages` 目录下的所有 Vue 组件
+- 自定义布局只生效于在 `layout` 块语句中定义相应了布局的 Vue 组件中
 
 ## 安装
+
+### 使用 npm
 
 ```shell
 npm install @originjs/vite-plugin-pages --save-dev
 ```
 
-or
+### 使用 yarn
 
 ```shell
 yarn add @originjs/vite-plugin-pages --dev
 ```
 
-## 使用
+## 在项目中使用
 
-First, add `@originjs/vite-plugin-pages` in `vite.config.js`.
+首先，在 `vite.config.js` 文件中引入 `@originjs/vite-plugin-pages` 。
 
 ```js
 // vite.config.js
@@ -39,7 +39,7 @@ export default {
 }
 ```
 
-Then import the `routes` generated from vite-plugin-pages, and create `router` instance with the `routes`:
+然后引入 `vite-plugin-pages` 生成的 `routes` ，并以此创建 `router` 实例。
 
 ```js
 
@@ -56,19 +56,19 @@ const router = createRouter({
 export default router
 ```
 
-now we could write our pages and layouts in pages directory and layouts directory respectively.
+现在我们就可以在 `pages` 和 `layouts` 目录下分别编写页面组件和布局组件了。
 
-## Convert rules
+## 路由转换规则
 
-See these examples:
+参考以下示例：
 
-1. Normal file name: /user/foo.vue -> /user/foo
-2. File name starts with `_`: /user/_id.vue -> /user/:id
-3. File name is `index.vue`: /user/index.vue -> /user
-4. File name is `_`: /_.vue -> /:pathMatch(.*)*
+1. 通用的文件名：`/user/foo.vue` -> `/user/foo`
+2. 以 `_` 开头命名的文件：`/user/_id.vue` -> `/user/:id`
+3. 文件名为 `index.vue`：`/user/index.vue` -> `/user`
+4. 文件名为 `_`：`/_.vue` -> `/:pathMatch(.*)*`
 
-## Others
+## 其他
 
-1. The name of files and directories in same directory must be different.
-   For example, if we already have /user/, we can't add a `user.vue` file.
-2. Directory can not be `index`
+1. 同一个目录下的文件和文件夹不能同名。
+   例如，如果已经存在 `/user/` ，那么不能添加 `user.vue` 文件。
+2. 目录不能作为 `index` 。

@@ -1,34 +1,34 @@
 # vite-plugin-content
 
-Convert `yaml`, `xml`, `xlsx`, `ini`, `toml`, `csv`, `plist` and `properties` files to ES6 modules.
+将 `yaml`、`xml`、`xlsx`、`ini`、`toml`、`csv`、`plist` 和 `properties` 文件转换成 `ES6 modules` 的 Vite 插件。
 
-## 特性
-
-- The files are read using `UTF-8` encoding.
-- `yaml` files transformed by `js-yaml`.
-- `xml` files transformed by `xml2js`.
-- `ini` files transformed by `ini`.
-- `toml` files transformed by `@iarna/toml`.
-- `csv` files transformed by `csv-parse`.
-- `plist` files transformed by `plist`.
-- `properties` files transformed by `plist`.
-- 'xlsx' files transformed by `sheetjs`
+- 使用 `UTF-8` 编码读取文件
+- 借助 `js-yaml` 转换 `yaml` 文件
+- 借助 `xml2js` 转换 `xml` 文件
+- 借助 `ini` 转换 `ini` 文件
+- 借助 `@iarna/toml` 转换 `toml` 文件
+- 借助 `csv-parse` 转换 `csv` 文件
+- 借助 `jsplistaml` 转换 `plist` 文件
+- 借助 `plist` 转换 `properties` 文件
+- 借助 `sheetjs` 转换 `xlsx` 文件
 
 ## 安装
+
+### 使用 npm
 
 ```shell
 npm install @originjs/vite-plugin-content --save-dev
 ```
 
-or
+### 使用 yarn
 
 ```shell
 yarn add @originjs/vite-plugin-content --dev
 ```
 
-## 使用
+## 在项目中使用
 
-First, add `@originjs/vite-plugin-content` in `vite.config.js`.
+首先，在 `vite.config.js` 文件中引入 `@originjs/vite-plugin-content` 。
 
 ```js
 // vite.config.js
@@ -43,11 +43,12 @@ export default {
 }
 ```
 
-Then you can import `yaml`, `xml`, `xlsx`, `ini`, `toml`, `csv`, `plist` and `properties` as ES module files
+然后引入 `yaml`、`xml`、`xlsx`、`ini`、`toml`、`csv`、`plist` 和 `properties` 文件作为 `ES6 modules` 使用。
 
 ```js
 import yaml from 'assets/test.yaml'
 import xml from 'assets/test.xml'
+import xlsx from 'assets/test.xlsx'
 import ini from 'assets/test.ini'
 import toml from 'assets/test.toml'
 import csv from 'assets/test.csv'
@@ -56,6 +57,7 @@ import properties from 'assets/test.properties'
 
 console.log(yaml)
 console.log(xml)
+console.log(xlsx)
 console.log(ini)
 console.log(toml)
 console.log(csv)
@@ -63,45 +65,47 @@ console.log(plist)
 console.log(properties)
 ```
 
-### Options
+## 配置项
 
-- `[yaml/xml/ini/toml/csv/plist/properties/markdown].enabled`
+### \[yaml/xml/xlsx/ini/toml/csv/plist/properties\].enabled
 
-  - Type: `boolean`
-  - Default: `true`
+  - 类型：`boolean`
+  - 默认值：`true`
 
-  Whether or not to enable `yaml/xml/ini/toml/csv/plist/properties/markdown` transformation.
+  允许对 `yaml/xml/xlsx/ini/toml/csv/plist/properties` 进行转换。
 
-- `[yaml/xml/ini/toml/csv/plist/properties/markdown].include`
+### \[yaml/xml/xlsx/ini/toml/csv/plist/properties\].include
 
-  - Type: `String` | `Array[...String]`
-  - Default: `null`
+  - 类型：`string` | `Array[...string]`
+  - 默认值：`null`
 
-  A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted.
+  以[最小匹配形式](https://github.com/isaacs/minimatch)或数组形式，指定在构建过程中需要被该插件操作的文件。默认所有文件都是目标文件。
 
-- `[yaml/xml/ini/toml/csv/plist/properties/markdown].exclude`
+### \[yaml/xml/xlsx/ini/toml/csv/plist/properties\].exclude
 
-  - Type: `String` | `Array[...String]`
-  - Default: `null`
+  - 类型：`string` | `Array[...string]`
+  - 默认值：`null`
 
-  A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should *ignore*. By default no files are ignored.
+  以[最小匹配形式](https://github.com/isaacs/minimatch)或数组形式，指定在构建过程中需要被该插件忽略的文件。默认所有文件都不被忽略。
 
-- `yaml.loadMultiDocument`
+### yaml.loadMultiDocument
 
-  - Type: `boolean`
-  - Default: `false`
+  - 类型：`boolean`
+  - 默认值：`false`
 
-  Whether or not to read yaml as multi-document sources. With `true`, the `loadAll` will be used to parse yaml files. With `false`, the `load` will be used to parse yaml files. See [here](https://github.com/nodeca/js-yaml) for more details.
+  允许读取 `yaml` 作为多文档源，具体内容查阅[这里](https://github.com/nodeca/js-yaml)。
 
-- `xml.xml2jsOptions`
+### xml.xml2jsOptions
 
-  - Type: `ParserOptions`
-  - Default: `null`
+  - 类型：`ParserOptions`
+  - 默认值：`null`
 
-  Options of `xml2js`. See [here](https://github.com/Leonidas-from-XIV/node-xml2js) for more details.
+  `xml2js` 配置项，具体内容查阅[这里](https://github.com/Leonidas-from-XIV/node-xml2js)。
 
-- `csv.csvOptions`
-  Options of `csv-parse`. See [here](https://csv.js.org/parse/options/) for more details.
+### csv.csvOptions
 
-- `xlsx.xlsxOptions`
-  Options of `sheetjs`. See [here](https://github.com/SheetJS/sheetjs#parsing-options) for more details.
+  `csv-parse` 配置项，具体内容查阅[这里](https://csv.js.org/parse/options/)。
+
+### xlsx.xlsxOptions
+
+  `sheetjs` 配置项，具体内容查阅[这里](https://github.com/SheetJS/sheetjs#parsing-options)。

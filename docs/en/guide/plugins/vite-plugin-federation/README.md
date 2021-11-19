@@ -1,27 +1,28 @@
 # vite-plugin-federation
 
-<p align="center">
-  <a href="https://github.com/originjs/vite-plugin-federation/actions/workflows/ci.yml"><img src="https://github.com/originjs/vite-plugin-federation/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build Status"></a>
-  <a href="https://www.npmjs.com/package/@originjs/vite-plugin-federation"><img src="https://badgen.net/npm/v/@originjs/vite-plugin-federation" alt="Version"></a>
-  <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="Node Compatibility"></a>
-  <a href="https://www.npmjs.com/package/@originjs/vite-plugin-federation"><img src="https://badgen.net/npm/license/@originjs/vite-plugin-federation" alt="License"></a>
- </p>
-
 A Vite plugin which support Module Federation.
+
 Inspired by Webpack [Module Federation](https://webpack.js.org/concepts/module-federation/) feature.
 
-## Install
+## Installation
 
-Using npm:
+### Use npm
 
 ```
 npm install @originjs/vite-plugin-federation --save-dev
 ```
 
+### Use yarn
+
+```shell
+yarn add @originjs/vite-plugin-federation --dev
+```
+
 ## Usage
-The main steps in using federation are:
-### Step 1: change the configuration
-- for a Vite project, in `vite.config.js`:
+
+### change the configuration
+
+- For a Vite project, in `vite.config.js` :
 
 ```js
 import { defineConfig } from 'vite'
@@ -45,7 +46,7 @@ export default defineConfig({
 
 ```
 
-- for a Rollup project, in `rollup.config.js`:
+- For a Rollup project, in `rollup.config.js` :
 
 ```js
 import federation from '@originjs/vite-plugin-federation'
@@ -69,9 +70,9 @@ export default {
 }
 ```
 
-### Step 2: asynchronous references
+### asynchronous references
 
-Vue2, for example
+Vue2, for example:
 
 ```vue
 <script>
@@ -86,9 +87,9 @@ export default {
 
 
 
-### Step 3: Use Remote module components
+### Use Remote module components
 
-Vue2, for example
+Vue2, for example:
 
 ```
 <template>
@@ -98,48 +99,72 @@ Vue2, for example
 </template>
 ```
 
-## Configuration description
+## Options
 
 ### exposes
-#### `name: string`
+
+#### name
+- Type: `string`
+
 Required as the module name of the remote module.
 
-#### `filename:string`
-As the entry file of the remote module, not required, default is `remoteEntry.js`
+#### filename
+- Type: `string`
+- Default: `remoteEntry.js`
+
+As the entry file of the remote module, not required, default is `remoteEntry.js` .
 
 As the remote module, the list of components exposed to the public, required for the remote module.
+
 ```js
-exposes: {
-// 'externally exposed component name': 'externally exposed component address'
-    '. /remote-simple-button': '. /src/components/Button.vue',
-        '. /remote-simple-section': '. /src/components/Section.vue'
-},
-  ```
+  exposes: {
+      // 'exposed component name':'component path'
+      './remote-simple-button': './src/components/Button.vue',
+      './remote-simple-section': './src/components/Section.vue'
+  },
+```
+
 ### remotes
-The remote module entry file referenced as a local module
-  ```js
-  remotes: {
-    // 'remote module name': 'remote module entry file address'
+
+The remote module entry file referenced as a local module.
+
+```js
+remotes: {
+    // 'remote module name':'remote entry'
     'remote-simple': 'http://localhost:5011/remoteEntry.js',
 },
-  ```
+```
 
 ### shared
+
 Dependencies shared by local and remote modules. Local modules need to configure the dependencies of all used remote modules; remote modules need to configure the dependencies of externally provided components.
-> configuration information
-#### `import: boolean`
 
-The default is `true`, whether to add shared to the module, only for the `remote` side, `remote` will reduce some of the packaging time when this configuration is turned on, because there is no need to package some of the `shared`, but once there is no `shared` module available on the `host` side, it will report an error directly, because there is no fallback module available
-#### `shareScope: string`
+#### import
+- Type: `boolean`
+- Default: `true`
 
-Default is `defualt`, the shared domain name, just keep the `remote` and `host` sides the same
-#### `version: string`
+Whether to add shared to the module, only for the `remote` side, `remote` will reduce some of the packaging time when this configuration is turned on, because there is no need to package some of the `shared`, but once there is no `shared` module available on the `host` side, it will report an error directly, because there is no fallback module available.
 
-Only works on `host` side, the version of the shared module provided is `version` of the `package.json` file in the shared package by default, you need to configure it manually only if you can't get `version` by this method
-#### `requiredVersion: string`
+#### shareScope
+- Type: `string`
+- Default: `default`
 
-Only for the `remote` side, it specifies the required version of the `host shared` used, when the version of the `host` side does not meet the `requiredVersion` requirement, it will use its own `shared` module, provided that it is not configured with `import=false`, which is not enabled by default
+The shared domain name, just keep the `remote` and `host` sides the same.
+
+#### version
+- Type: `string`
+- Default:  `version` of the `package.json` file in the shared package
+
+Only works on `host` side. you need to configure it manually only if you can't get `version`.
+
+#### requiredVersion
+- Type: `string`
+- Default: `null`
+
+Only for the `remote` side, it specifies the required version of the `host shared` used, when the version of the `host` side does not meet the `requiredVersion` requirement, it will use its own `shared` module, provided that it is not configured with `import=false`, which is not enabled by default.
+
 ## Examples
+
 + [basic-host-remote](https://github.com/originjs/vite-plugin-federation/tree/main/packages/examples/basic-host-remote)
 + [simple-react](https://github.com/originjs/vite-plugin-federation/tree/main/packages/examples/simple-react)
 + [vue3-demo](https://github.com/originjs/vite-plugin-federation/tree/main/packages/examples/vue3-demo)

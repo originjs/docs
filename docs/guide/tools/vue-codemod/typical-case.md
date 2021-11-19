@@ -1,18 +1,12 @@
-# 利用 vue-codemod 工具升级到 Vue 3
+# 利用 vue-codemod 工具升级到 Vue3
 
 ## 概述
 
-Vue 3 正式版本发布已经半年有余，同时 Vue 2 会逐步停止维护，如何将现有的 Vue 2 工程迁移到 Vue 3 成为了大家关心的问题，尽管目前 Vue 官方有了详细的迁移指导，但实际项目中源码升级迁移工作量比较大，为减少重复性工作，这里推荐一款迁移工具 [originjs/vue-codemod](https://github.com/originjs/vue-codemod) ，该工具可以将大部分的 Vue2（推荐 Vue 2.6 以上版本）的语法直接升级成 Vue 3 语法，之后配合一些手动更改完成 Vue 2 项目的迁移。
+Vue3 正式版本发布已经半年有余，同时 Vue2 会逐步停止维护，如何将现有的 Vue2 工程迁移到 Vue3 成为了大家关心的问题，尽管目前 Vue 官方有了详细的迁移指导，但实际项目中源码升级迁移工作量比较大，为减少重复性工作，这里推荐一款迁移工具 [originjs/vue-codemod](https://github.com/originjs/vue-codemod) ，该工具可以将大部分的 Vue2（推荐 Vue2.6 以上版本）的语法直接升级成 Vue3 语法，之后配合一些手动更改完成 Vue2 项目的迁移。
 
 > 说明：[originjs/vue-codemod](https://github.com/vuejs/vue-codemod) 是基于 [vuejs/vue-codemod](https://github.com/vuejs/vue-codemod) 的 fork 仓库，由于上游社区作者繁忙，暂时没有将我们的特性合入到原始项目中，因此我们在自己的 fork 仓库上继续特性开发。
 
 演示项目地址：[vue2-element-touzi-admin](https://github.com/originjs/vue2-element-touzi-admin/tree/to-vue3)
-
-## 全局安装 vue-codemod
-
-话不多说，上工具，工具安装
-
-`npm install originjs/vue-codemod -g` or `yarn add originjs/vue-codemod -g`
 
 ## 迁移步骤
 
@@ -20,7 +14,7 @@ Vue 3 正式版本发布已经半年有余，同时 Vue 2 会逐步停止维护�
 
 > 注意：vue-codemod 是在源路径下修改文件，若您的代码没有使用诸如 Git、SVN 等版本管理工具时，请提前备份。
 
-运行命令：`npx vue-codemod src -a`，在手动修改前直接使用 vue-codemod 来一波自动升级（实际是语法替换），下面是转换日志，我们可以看到转换了哪些规则，更改了哪些文件；
+运行命令：`npx vue-codemod src -a` ，在手动修改前直接使用 vue-codemod 来一波自动升级（实际是语法替换），下面是转换日志，我们可以看到转换了哪些规则，更改了哪些文件；
 
 ```cmd
 npx vue-codemod src -a
@@ -190,7 +184,7 @@ index: 8
 
 ### Step 2：[将 element-ui 升级为 element-plus](https://github.com/originjs/vue2-element-touzi-admin/commit/8cddf35dcf04165fbf997e378205c5428dcb5e7f)
 
-Vue 3 迁移中最大的限制就是依赖，如果诸如 UI 组件之类的依赖不支持 Vue 3，那就建议你暂时不要升级，等支持了再升级；
+Vue3 迁移中最大的限制就是依赖，如果诸如 UI 组件之类的依赖不支持 Vue 3，那就建议你暂时不要升级，等支持了再升级；
 
 ### Step 3：[修复一些全局 API 错误](https://github.com/originjs/vue2-element-touzi-admin/commit/c1a7288299f80e23d5b1ad32f111ee10564ad8bd)
 

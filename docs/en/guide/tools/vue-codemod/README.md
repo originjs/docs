@@ -2,9 +2,7 @@
 
 > ⚠️Attention: This repo is forked from [https://github.com/vuejs/vue-codemod](https://github.com/vuejs/vue-codemod).
 
-`vue-codemod` is a Vue 2 to Vue 3 migration tool, which can directly upgrade most of the Vue 2 syntax to Vue 3 syntax. With `vue-codemod` transformation and a small amount of manual modification, users can complete the smooth migration from Vue 2 to Vue 3.
-
-[中文](./README_ZH.md)
+`vue-codemod` is a Vue2 to Vue3 migration tool, which can directly upgrade most of the Vue2 syntax to Vue3 syntax. With `vue-codemod` transformation and a small amount of manual modification, users can complete the smooth migration from Vue2 to Vue3.
 
 ## Transformation Rates
 
@@ -34,7 +32,6 @@
 ### Installation
 
 > `npm/yarn` install is recommended. Users can also try beta version from GitHub
-
 #### Install from `npm/yarn`  
 
 ``` bash
@@ -55,7 +52,6 @@ git clone https://github.com/originjs/vue-codemod
 
 ```bash
 cd vue-codemod
-
 npm install
 // or
 yarn install
@@ -114,7 +110,6 @@ The `-f` option is used to specify the output format. The optional parameters ar
 > `detail` : list transformed files for each rule
 >
 > `log` : output a report in the form of log file
-
 Here is a sample output of `-f table`:
 
 ```bash
@@ -171,7 +166,6 @@ Output:
 ``` bash
 npx vue-codemod --help
 Usage: vue-codemod [file pattern]
-
 Options:
   -t, --transformation        Name or path of the transformation module [string]
   -p, --params                Custom params to the transformation
@@ -180,7 +174,6 @@ Options:
                                                     [string] [default: "detail"]
   -h, --help                  Show help                                [boolean]
   -v, --version               Show version number                      [boolean]
-
 Examples:
   npx vue-codemod ./src -a                  Run all rules to convert all
                                             relevant files in the ./src folder
@@ -189,18 +182,18 @@ Examples:
   slot-attribute
 ```
 
-### Migrating from Vue 2 to Vue 3
+### Migrating from Vue2 to Vue3
 
 1. Run the `-a` command: `npx vue-codemod <path> -a`
 2. Manually migrate some cases which `vue-codemod` doesn't cover based on [Manual Migration Guide](./docs/manual-guide.md).
 3. Make sure to use [@vue/compat](https://github.com/vuejs/vue-next/tree/master/packages/vue-compat) to build
 4. Serve the app in development mode, fix the runtime deprecation warnings
 
-> Note: even though most of the migration process can be automated, please be aware there might still be subtle differences between Vue 3 and Vue 2 runtime, and the codemods may have uncovered edge cases. Please double check before deploying your Vue 3 app into production.
+> Note: even though most of the migration process can be automated, please be aware there might still be subtle differences between Vue3 and Vue2 runtime, and the codemods may have uncovered edge cases. Please double check before deploying your Vue3 app into production.
 
 ### Typical Migration Case
 
-We forked [vue2-element-touzi-admin](https://github.com/wdlhao/vue2-element-touzi-admin), and try to migrate it from Vue 2 to Vue 3 with `vue-codemod`, we have recorded every step of the operation, if you are interested, please see [Typical Migration Case](./docs/typical-case.md)
+We forked [vue2-element-touzi-admin](https://github.com/wdlhao/vue2-element-touzi-admin), and try to migrate it from Vue2 to Vue3 with `vue-codemod`, we have recorded every step of the operation, if you are interested, please see [Typical Migration Case](./docs/typical-case.md)
 
 ## Rule List
 

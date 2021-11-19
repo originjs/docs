@@ -1,16 +1,17 @@
 ---
 home: true
 heroImage: /assets/img/logo.png
-heroText: originjs
+heroText: Origin.js
 tagline: 简单而强大的 Vue.js 应用框架
 actionText: 快速上手 →
-actionLink: /installation
+actionLink: /guide/
+features:
+- title: 约定式框架
+  details: 提供基于 Vue.js 的约定式 web 框架
+- title: Vite 支持
+  details: 提供 Webpack 转 Vite 的转换工具
+- title: Vue 支持
+  details: 提供 Vue2 升 Vue3 的迁移工具
 footer: MulanPSL2 Licensed | Copyright © 2021-present originjs
 # navbar: false
 ---
-
-originjs 提供一整套基于 Vue.js 的 web 项目解决方案
-
-* 提供约定式 web 框架
-* 提供 webpack 转 vite 的转换工具
-* 提供 Vue 2 升 Vue 3 的迁移工具

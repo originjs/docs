@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'originjs',
+  title: 'Origin.js',
   head: [
     ['link', { rel: 'icon', href: '/assets/img/logo.png' }]
   ],
@@ -8,12 +8,12 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'originjs',
+      title: 'Origin.js',
       description: 'description balabala'
     },
     '/en/': {
       lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
-      title: 'originjs',
+      title: 'Origin.js',
       description: 'description balabala'
     }
   },
@@ -46,12 +46,12 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: '安装',
-                path: '/installation'
+                title: 'Origin.js 是什么',
+                path: '/guide/'
               },
               {
-                title: '开始',
-                path: '/guide/'
+                title: '安装',
+                path: '/installation'
               },
             ]
           },
@@ -60,8 +60,12 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: '开始',
-                path: '/guide/origin.js/'
+                title: '快速开始',
+                path: '/guide/cli/start/'
+              },
+              {
+                title: '使用工具',
+                path: '/guide/cli/tools/'
               },
             ]
           },
@@ -94,6 +98,7 @@ module.exports = {
               {
                 title: 'vue-codemod',
                 collapsable: false,
+                path: '/guide/tools/vue-codemod/',
                 children: [
                   {
                     title: '使用指导',
@@ -135,12 +140,12 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: 'Installation',
-                path: '/en/installation'
+                title: 'What is Origin.js?',
+                path: '/en/guide/'
               },
               {
-                title: 'Getting Started',
-                path: '/en/guide/'
+                title: 'Installation',
+                path: '/en/installation'
               },
             ]
           },
@@ -150,7 +155,11 @@ module.exports = {
             children: [
               {
                 title: 'Getting Started',
-                path: '/en/guide/origin.js/'
+                path: '/en/guide/cli/start/'
+              },
+              {
+                title: 'Tools',
+                path: '/en/guide/cli/tools/'
               },
             ]
           },
@@ -159,8 +168,8 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: 'vite-plugin-assets',
-                path: '/en/guide/plugins/vite-plugin-assets/'
+                title: 'vite-plugin-global-style',
+                path: '/en/guide/plugins/vite-plugin-global-style/'
               },
               {
                 title: 'vite-plugin-content',
@@ -183,6 +192,7 @@ module.exports = {
               {
                 title: 'vue-codemod',
                 collapsable: false,
+                path: '/en/guide/tools/vue-codemod/',
                 children: [
                   {
                     title: 'Intruduction Guide',

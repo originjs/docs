@@ -1,20 +1,12 @@
-# Upgrade to Vue 3 by vue-codemod
+# Upgrade to Vue3 by vue-codemod
 
 ## Summary
 
-It has been half a year since the release of Vue 3, meanwhile, LTS support for Vue 2 will be phased out in 18 months. How to migrate the existing Vue 2 project to Vue 3 has become an issue of concern to everyone. Although Vue.js team has released a detailed migration guidance, the workload of source code upgrade and migration in practical projects is relatively large. To reduce repetitive work, we recommend a migration tool called [originjs/vue-codemod](https://github.com/originjs/vue-codemod), which can directly upgrade most of the Vue 2 syntax to Vue 3 syntax. With `vue-codemod` transformation and a small amount of manual modification, users can complete the smooth migration from Vue 2 to Vue 3.
+It has been half a year since the release of Vue3, meanwhile, LTS support for Vue2 will be phased out in 18 months. How to migrate the existing Vue2 project to Vue3 has become an issue of concern to everyone. Although Vue.js team has released a detailed migration guidance, the workload of source code upgrade and migration in practical projects is relatively large. To reduce repetitive work, we recommend a migration tool called [originjs/vue-codemod](https://github.com/originjs/vue-codemod), which can directly upgrade most of the Vue2 syntax to Vue3 syntax. With `vue-codemod` transformation and a small amount of manual modification, users can complete the smooth migration from Vue2 to Vue3.
 
 > ⚠️Attention: Since the [`vue-codemod`](https://github.com/vuejs/vue-codemod) from Vue.js team has not been maintained for some time, the following repo is forked from Vue.js team. We are continuing to develop new features in the fork repo.
 
 Demo project address：[vue2-element-touzi-admin](https://github.com/originjs/vue2-element-touzi-admin/tree/to-vue3)
-
-## Global Install `vue-codemod`
-
-```bash
-npm install originjs/vue-codemod -g`
-// or
-yarn add originjs/vue-codemod -g
-```
 
 ## Migration Steps
 
@@ -198,7 +190,7 @@ index: 8
 
 ### Step 2：[Upgrade elment-ui to element-plus](https://github.com/originjs/vue2-element-touzi-admin/commit/8cddf35dcf04165fbf997e378205c5428dcb5e7f)
 
-The biggest limitation of Vue 3 migration is the dependencies. If some components in your source code don't support Vue 3, we suggest your project remain unchanged until the Vue 3 supported version release.
+The biggest limitation of Vue3 migration is the dependencies. If some components in your source code don't support Vue3, we suggest your project remain unchanged until the Vue3 supported version release.
 
 ### Step 3：[Fix errors or warnings from Global API](https://github.com/originjs/vue2-element-touzi-admin/commit/c1a7288299f80e23d5b1ad32f111ee10564ad8bd)
 
