@@ -70,8 +70,8 @@ module.exports = {
             collapsable: false,
             children: [
               {
-                title: 'vite-plugin-assets',
-                path: '/guide/plugins/vite-plugin-assets/'
+                title: 'vite-plugin-global-style',
+                path: '/guide/plugins/vite-plugin-global-style/'
               },
               {
                 title: 'vite-plugin-content',
