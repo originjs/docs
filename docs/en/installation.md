@@ -1,8 +1,10 @@
-# installation
+# Installation
 
-## Direct Download
+It is possible to complete installation and setup of Origin.js through these methods.
 
-Include `originjs` and it will install itself autoamtically:
+## Download directly
+
+Import `originjs` in `<script>` and it will be installed automatically:
 
 ```html
 <script src="/path/to/originjs.js"></script>
@@ -20,13 +22,17 @@ npm install @originjs/origin.js --save
 yarn add @originjs/origin.js
 ```
 
-## Dev Build
+## Dev build
 
-You will have to clone directly from GitHub and build `originjs` yourself if you want to use the latest dev build.
+You need to clone `origin.js` directly from `GitHub` and build it yourself, if you want to use the latest dev build.
 
 ```bash
+# clone from github
 git clone https://github.com/originjs/origin.js.git node_modules/origin.js
+# change directory
 cd node_modules/origin.js
+# install dependencies
 npm install
+# build
 npm run build
 ```

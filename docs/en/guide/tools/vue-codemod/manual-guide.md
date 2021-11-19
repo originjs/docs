@@ -1,29 +1,6 @@
-- [Manual Migration Guide](#manual-migration-guide)
-  - [Limitation](#limitation)
-    - [Vue version](#vue-version)
-    - [Third-party dependencies](#third-party-dependencies)
-  - [Vue](#vue)
-    - [Global API](#global-api)
-    - [Slot](#slot)
-    - [Filter](#filter)
-      - [Partial Filter](#partial-filter)
-      - [Global Filter](#global-filter)
-    - [Events API](#events-api)
-    - [/deep/](#deep)
-    - [Delimiter](#delimiter)
-  - [Vue Router](#vue-router)
-    - [VueRouter.prototype](#vuerouterprototype)
-    - [Removed `*` routes](#removed--routes)
-    - [All navigations in Router 4 are asynchronous](#all-navigations-in-router-4-are-asynchronous)
-  - [Element-ui](#element-ui)
-    - [Import CSS](#import-css)
-    - [`slot` attribute in el-table](#slot-attribute-in-el-table)
-
-<!-- /TOC -->
-
 # Manual Migration Guide
 
-Before manual migration, please make sure your project has been auto upgraded by [vue-codemod](https://github.com/originjs/vue-codemod). Please refer to the [User Guide](./使用指导.md) for using `vue-codemod`.
+Before manual migration, please make sure your project has been auto upgraded by [vue-codemod](https://github.com/originjs/vue-codemod). Please refer to the [User Guide](https://originjs.github.io/docs/en/guide/tools/vue-codemod/#transformation-rates) for using `vue-codemod`.
 
 This manual migration guide is based on the actual problems encountered in the transformed project. Users could also encounter other problems in transforming their projects. It's welcomed for users to open an [issue](https://github.com/originjs/vue-codemod/issues) or [PR](https://github.com/originjs/vue-codemod/pulls).
 
@@ -35,9 +12,9 @@ Vue version >= 2.6.0
 
 ### Third-party dependencies
 
-Some third-party packages currently don't have support for Vue 3
+Some third-party packages currently don't have support for Vue3
 
-Currently, the UI framework libraries that support Vue 3 are:
+Currently, the UI framework libraries that support Vue3 are:
 
 - [quasar](https://github.com/quasarframework/quasar)
 - [element-plus](https://github.com/element-plus/element-plus/)
@@ -55,7 +32,7 @@ Please refer to [Vue2ToVue3](https://github.com/zdravkov/Vue2ToVue3) to see the 
 
   - For those global api not in `main.js`, transform them to a plugin form.
 
-    In Vue 2:
+    In Vue2:
 
     ```js
     // directive/index.js
@@ -65,7 +42,7 @@ Please refer to [Vue2ToVue3](https://github.com/zdravkov/Vue2ToVue3) to see the 
     Vue.directive('myDirective', myDirective)
     ```
 
-    In Vue 3:
+    In Vue3:
 
     ```js
     // directive/index.js
@@ -100,7 +77,7 @@ Please refer to [Vue2ToVue3](https://github.com/zdravkov/Vue2ToVue3) to see the 
 
   - Configuration not in `main.js`
 
-    In Vue 2:
+    In Vue2:
 
     ```js
     // message/index.js
@@ -112,7 +89,7 @@ Please refer to [Vue2ToVue3](https://github.com/zdravkov/Vue2ToVue3) to see the 
     }
     ```
 
-    In Vue 3:
+    In Vue3:
 
     ```js
     // message/index.js
@@ -130,7 +107,7 @@ Please refer to [Vue2ToVue3](https://github.com/zdravkov/Vue2ToVue3) to see the 
 
 Please refer to [Migration Guide from Vue.js team](https://vuejs.org/v2/guide/components-slots.html#Deprecated-Syntax) for more details.
 
-`slot` attributes are deprecated since Vue 2.6.0. `v-slot` was introduced for named and scoped slots. In `vue-codemod` , the `slot-attribute` rule can transform `slot` attributes to `v-slot` syntax：
+`slot` attributes are deprecated since Vue2.6.0. `v-slot` was introduced for named and scoped slots. In `vue-codemod` , the `slot-attribute` rule can transform `slot` attributes to `v-slot` syntax：
 
 ```html
 <base-layout>
@@ -209,7 +186,7 @@ Please refer to [Migration Guide from Vue.js team](https://v3.vuejs.org/guide/mi
 
 ### Events API
 
-In Vue 3, `$on`, `$off` and `$once` instance methods are removed. Component instances no longer implement the event emitter interface, thus it is no longer possible to use these APIs to listen to a component's own emitted events from within a component. The event bus pattern can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt) or [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
+In Vue3, `$on`, `$off` and `$once` instance methods are removed. Component instances no longer implement the event emitter interface, thus it is no longer possible to use these APIs to listen to a component's own emitted events from within a component. The event bus pattern can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt) or [tiny-emitter](https://github.com/scottcorgan/tiny-emitter).
 
 Please refer to [Migration Guide from Vue.js team](https://v3.vuejs.org/guide/migration/events-api.html) for more details.
 
@@ -253,7 +230,7 @@ Please refer to [Migration Guide from Vue.js team](https://v3.vuejs.org/guide/mi
 
 ### Delimiter
 
-In Vue 2, event internal statement can use `newline character` as the delimiter.
+In Vue2, event internal statement can use `newline character` as the delimiter.
 
 ```html
 <button
@@ -264,7 +241,7 @@ In Vue 2, event internal statement can use `newline character` as the delimiter.
 ></button>
 ```
 
-But in Vue 3, `newline character` is no longer used as the delimiter. A `;` or `,` is needed.
+But in Vue3, `newline character` is no longer used as the delimiter. A `;` or `,` is needed.
 
 ```html
 <button
@@ -283,7 +260,7 @@ But in Vue 3, `newline character` is no longer used as the delimiter. A `;` or `
 
 In Router 3, Vue Router is a class, which can use `prototype` to access `push` method. But in Router 4, Router is an instance, which needs to access the `push` method through an instance.
 
-In Router 3 (for Vue 2) :
+In Router 3 (for Vue2) :
 
 ```js
 import VueRouter from 'vue-router'
@@ -301,7 +278,7 @@ VueRouter.prototype.push = function (location, onResolve, onReject) {
 }
 ```
 
-In Router 4 (for Vue 3):
+In Router 4 (for Vue3):
 
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
@@ -330,7 +307,7 @@ router.push = function (location, onResolve, onReject) {
 
 Catch all routes (`*`, `/*`) must now be defined using a parameter with a custom regex.
 
-In Router 3 (for Vue 2), users can define `*` router directly:
+In Router 3 (for Vue2), users can define `*` router directly:
 
 ```js
 // router/index.js
