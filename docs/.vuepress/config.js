@@ -18,7 +18,8 @@ module.exports = {
     }
   },
   themeConfig: {
-    // logo: '/assets/img/logo.png',
+    logo: '/assets/img/logo.png',   // 导航栏 Logo
+
     // github相关链接配置
     repo: 'originjs',
     docsRepo: 'originjs/docs',
