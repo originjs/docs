@@ -67,9 +67,9 @@ yarn run build
 yarn global add .
 ```
 
-### 使用
+### 在项目中使用
 
-`vue-codemod` 是由一条条转换规则组成，这些转换规则位于 `transformation/index.ts` 和 `vue-transformation/index.ts` 下。
+`vue-codemod` 是由一条一条的转换规则组成，这些转换规则位于 `transformation/index.ts` 和 `vue-transformation/index.ts` 下。
 
 ```bash
 npx vue-codemod <path> -t/-a [transformation params][...additional options]
@@ -84,7 +84,7 @@ npx vue-codemod <path> -t/-a [transformation params][...additional options]
 npx vue-codemod src -a
 ```
 
-`src` 指定的是扫描的文件路径，`-a` 表示执行所有的规则转换
+`src` 指定的是扫描的文件路径，`-a` 表示执行所有的规则转换。
 
 #### 执行单条规则
 
@@ -94,7 +94,7 @@ npx vue-codemod src -t new-global-api
 
 `src` 指定的是扫描的文件路径，`-t new-global-api` 表示只执行 `new-global-api` 这条规则。
 
-详细的规则列表请 [点击此处](#规则清单)
+详细的规则列表请 [点击此处](#规则清单)。
 
 #### 规定输出格式
 
@@ -155,7 +155,7 @@ index: 1
 npx vue-codemod --help
 ```
 
-结果如下所示
+结果如下所示：
 
 ```bash
 npx vue-codemod --help
