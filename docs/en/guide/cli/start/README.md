@@ -32,11 +32,15 @@ cd <app-name>
 npm run dev  #yarn dev
 ```
 
-We also provide Origin.js command to create a Vite server. It might support creating Webpack server as well in the future.
+Then you can debug your project in the browser. The Vite server will execute lightning fast HMR when you update the page files.
+
+Origin.js also provides command to create a Vite server. It might support creating Webpack server as well in the future.
 
 ```shell
 ori dev [options]
 ```
+
+The server is based on Vite, so you can set [Vite server options](https://vitejs.dev/config/#server-host) in `vite.config.ts` to config your server.
 
 ### Options
 
@@ -58,3 +62,5 @@ You can also use our Origin.js command, which called Vite bundler. It might supp
 ```shell
 ori build
 ```
+
+The bundler is based on Vite, so you can set [Vite build options](https://vitejs.dev/config/#build-target) in `vite.config.ts` to config building to satisfy your demand.

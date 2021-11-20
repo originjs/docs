@@ -1,10 +1,10 @@
 # 安装
 
-可以通过如下方式完成 Origin.js 的安装和配置。
+Origin.js 在 [Node.js](https://nodejs.org/en/) 环境下运行，可以通过以下几种方式完成安装和配置。
 
 ## 直接下载
 
-直接通过 `<script> `标签载入文件:
+直接在 `<script>` 标签载入文件:
 
 ```html
 <script src="/path/to/originjs.js"></script>
@@ -22,9 +22,9 @@ npm install -g @originjs/cli
 yarn global add @originjs/cli
 ```
 
-## 开发构建
+## 源码构建
 
-如果你希望使用最新的代码，可以通过 `GitHub` 克隆 `origin.js` 的源码并构建：
+如果你希望使用最新的功能进行开发，可以通过 `GitHub` 克隆 `origin.js` 的源码并自行构建：
 
 ```bash
 # clone from github

@@ -6,7 +6,7 @@ Origin.js is a simple and powerful web application framework, which provides a c
 
 This web application framework integrated some useful plugins and development tools to support these awesome features such as the following, which makes coding and development easier:
 
-- [Vue3](https://v3.cn.vuejs.org/) & [Vite2](https://cn.vitejs.dev/)
+- [Vue3](https://v3.vuejs.org/) & [Vite2](https://vitejs.dev/)
 - [Vue i18n](https://kazupon.github.io/vue-i18n/) & [Vuex](https://vuex.vuejs.org/) intergrated
 - Global styles with css, sass, less or stylus
 - Auto-imported Vue components

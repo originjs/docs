@@ -6,7 +6,7 @@
 
 ## Webpack 转换 Vite
 
-Origin.js 封装了 `webpack-to-vite` 工具，支持 Webpack 项目到 Vite 项目的一键转换，并且展示详细的转换过程来辅助转换顺利进行。
+Origin.js 提供 `webpack-to-vite` 工具，支持 Webpack 项目到 Vite 项目的一键转换，并且展示详细的转换过程来辅助转换顺利进行。
 
 使用指令进行转换：
 
@@ -24,11 +24,11 @@ ori tovite [options]
 -h, --help               显示指令帮助信息
 ```
 
-> 详细内容会在 [webpack-to-vite](https://originjs.github.io/docs/en/guide/tools/webpack-to-vite/) 中介绍。
+> 更多内容将在 [webpack-to-vite](https://originjs.github.io/docs/guide/tools/webpack-to-vite/) 中介绍。
 
 ## Vue2 升级 Vue3
 
-Origin.js 封装了 `vue-codemod` 工具，支持 Vue2 项目到 Vue3 项目的一键转换。工具能够将绝大多数 Vue2 语法直接升级成 Vue3 语法，配合少量的手动修改完成 Vue2 到 Vue3 的平滑迁移。
+Origin.js 提供 `vue-codemod` 工具，支持 Vue2 项目到 Vue3 项目的一键转换。工具能够将绝大多数 Vue2 语法直接升级成 Vue3 语法，配合少量的手动修改完成 Vue2 到 Vue3 的平滑迁移。
 
 使用指令进行转换：
 
@@ -48,4 +48,4 @@ ori tovue3 [options]
 -v, --version               显示版本号               [boolean]
 ```
 
-> 详细内容会在 [vue-codemod](https://originjs.github.io/docs/en/guide/tools/vue-codemod/) 中介绍。
+> 更多内容将在 [vue-codemod](https://originjs.github.io/docs/guide/tools/vue-codemod/) 中介绍。
