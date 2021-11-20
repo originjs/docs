@@ -272,7 +272,7 @@ VueRouter.prototype.push = function (location, onResolve, onReject) {
 }
 ```
 
-在 Router 4（配套 Vue 3）中
+在 Router 4（配套 Vue 3）中：
 
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
@@ -378,7 +378,7 @@ watch: {
 
 ### 样式引入
 
-部分全局样式的引入需要手动替换路径：`import('element-ui/lib/theme-chalk/index.css')` 替换为 `import('element-plus/lib/theme-chalk/index.css')`
+部分全局样式的引入需要手动替换路径：`import('element-ui/lib/theme-chalk/index.css')` 替换为 `import('element-plus/lib/theme-chalk/index.css')`。
 
 ### 表格 el-table 作用域插槽
 

@@ -1,6 +1,6 @@
 # Installation
 
-It is possible to complete installation and setup of Origin.js through these methods.
+Origin.js is used on [Node.js](https://nodejs.org/en/). It is possible to complete installation and setup through these methods.
 
 ## Download directly
 

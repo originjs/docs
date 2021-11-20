@@ -7,7 +7,7 @@ Origin.js 是一个简单而强大的 Web 应用框架，提供一套基于 Vue.
 Origin.js 集成实用的插件和开发工具，支持如下特性，使得编码和开发更加容易：
 
 - [Vue3](https://v3.cn.vuejs.org/) & [Vite2](https://cn.vitejs.dev/)
-- [Vue i18n](https://kazupon.github.io/vue-i18n/) & [Vuex](https://vuex.vuejs.org/) 
+- [Vue i18n](https://kazupon.github.io/vue-i18n/zh/) & [Vuex](https://vuex.vuejs.org/zh/) 
 - 自动导入使用 css、sass、less 或 stylus 定义的全局样式
 - 自动引入 Vue 组件
 - 基于项目文件的路由配置和布局渲染
