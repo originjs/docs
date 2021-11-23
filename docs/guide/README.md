@@ -13,6 +13,7 @@ Origin.js 集成实用的插件和开发工具，支持如下特性，使得编�
 - 基于项目文件的路由配置和布局渲染
 - 支持读取 `yaml/xml/xlsx/...` 文件作为 ES 模块
 - Markdown 支持
+- 模块联邦
 - [Webpack 到 Vite 的转换工具](https://github.com/originjs/webpack-to-vite)
 - [Vue2 升 Vue3 的迁移工具](https://github.com/originjs/vue-codemod)
 

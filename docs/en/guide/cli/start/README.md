@@ -23,6 +23,46 @@ There are some prompts so that you can define the version, license and plugins o
 
 The option `-a / --all-plugins` specifies that it will create a new app with default configuration and all of the plugins will be imported. So once it was used, `-d / --default` must be used simultaneously. Otherwise some error will be thrown. In other words, if some apps would be created with all plugins defaultly, you should execute `ori init -d -a <app-name>`.
 
+## Plugins
+
+You can choose the plugins as follows when initializing an application. CLI will apply the default configurations to `vite.config.ts` for those plugins you selected. You can also refer to their documentations to config the plugins manually.
+
+### GlobalStyle
+
+Automatically add `CSS`, `SASS`, `LESS`, `Stylus` files in `assets` directory which named starting with `global` to the Vite global style.
+
+> Supported by `@originjs/vite-plugin-global-style` . See [vite-plugin-global-style](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-global-style/) .
+
+### Layouts & Pages
+
+Automate generate route config for Vue components in `pages` directory, and support layouts in the same time.
+
+> Supported by `@originjs/vite-plugin-pages` . See [vite-plugin-pages](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-pages/) .
+
+### Components
+
+Auto-import Vue components defined in `components` directory.
+
+> Supported by `vite-plugin-components` . See [vite-plugin-components](https://github.com/antfu/vite-plugin-components) .
+
+### Markdown
+
+Capability of loading markdown files in Vue components.
+
+> Supported by `vite-plugin-md` . See [vite-plugin-md](https://github.com/antfu/vite-plugin-md).
+
+### Content
+
+Capability of converting `yaml`, `xml`, `xlsx`, `ini`, `toml`, `csv`, `plist` and `properties` files to `ES6 modules`.
+
+> Supported by `@originjs/vite-plugin-content` . See [vite-plugin-content](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-content/) .
+
+### Module Federation
+
+Capability of loading remote modules in application.
+
+> Supported by `@originjs/vite-plugin-federation` . See [vite-plugin-federation](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-federation/) .
+
 ## Launch it
 
 For development, just change path into your project root directory and launch it:

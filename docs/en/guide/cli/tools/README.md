@@ -1,6 +1,6 @@
 # Tools
 
-In addition to CLI of the web application framework, Origin.js also provides some utilities as follows:
+In addition to CLI for the web application framework, Origin.js also provides some utilities as follows:
 - Webpack to vite conversion tool
 - A migration tool from Vue2 to Vue3
 

@@ -13,6 +13,7 @@ This web application framework integrated some useful plugins and development to
 - File based routing and layouts
 - Open `yaml/xml/xlsx/...` as a ES module
 - Markdown support
+- Module Federation
 - [Webpack to vite conversion tool](https://github.com/originjs/webpack-to-vite)
 - [A migration tool from Vue2 to Vue3](https://github.com/originjs/vue-codemod)
 
