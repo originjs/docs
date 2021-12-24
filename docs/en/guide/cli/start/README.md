@@ -10,7 +10,9 @@ If you want to create a new web application and initialize it, you should run:
 ori init [options] <app-name>
 ```
 
-There are some prompts so that you can define the version, license and plugins of the project. The Origin.js application will be based on Vue3 and Vite2, and the initial files will be generated according to your definition. The project dependencies will be installed before initialization finished, so you can launch it directly.
+There are some prompts so that you can define the version, license, test framework and plugins of the project. The Origin.js application will be based on Vue3 and Vite2, and the initial files will be generated according to your definition. 
+
+The project dependencies will be installed before initialization finished, so you can launch it directly.
 
 ### Options
 
@@ -64,3 +66,15 @@ ori build
 ```
 
 The bundler is based on Vite, so you can set [Vite build options](https://vitejs.dev/config/#build-target) in `vite.config.ts` to config building to satisfy your demand.
+
+## Test
+
+If the test framework is used, the project file will contain test cases for the Vue component, to run the tests:
+
+```shell
+npm run test  #yarn test
+```
+
+The test result defaultly shows the coverage of the test case.
+
+Origin.js provides both Jest and Vitest for testing. By referencing [Jest Configuration](https://jestjs.io/zh-Hans/docs/configuration) to configure test options in `jest.config.js`, or [Vitest Configuration](https://vitest.dev/config/) to configure in `vite.config.ts`.
