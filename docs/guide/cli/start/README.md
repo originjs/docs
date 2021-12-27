@@ -5,11 +5,14 @@
 ## 创建应用
 
 运行以下命令创建并初始化一个 web 应用：
+
 ```shell
 ori init [options] <app-name>
 ```
 
-在创建过程中，你可以根据命令行给出的提示，自定义配置你项目的版本、证书和需要引入的插件，CLI 将记录你的配置并按需生成初始目录和文件，创建一个基于 Vue3 和 Vite2 的 Origin.js 应用。项目依赖会自动安装，所以初始化完成之后就可以直接启动。
+在创建过程中，你可以根据命令行给出的提示，自定义配置你项目的版本、证书、测试框架和需要引入的插件，CLI 将记录你的配置并按需生成初始目录和文件，创建一个基于 Vue3 和 Vite2 的 Origin.js 应用。
+
+项目依赖会自动安装，所以初始化完成之后就可以直接启动。
 
 ### 指令选项
 
@@ -103,3 +106,15 @@ ori build
 ```
 
 Origin.js 调用了 Vite 提供的构建工具，所以在 `vite.config.ts` 文件中进行 [Vite 构建配置](https://cn.vitejs.dev/config/#build-target)，程序就可以根据你的配置选项来构建符合需求的项目。
+
+## 运行测试
+
+如果选用了测试框架，项目文件中将包含 Vue 组件的测试用例，输入以下指令运行测试：
+
+```shell
+npm run test  #yarn test
+```
+
+默认输出测试用例的覆盖情况。
+
+Origin.js 提供 Jest 和 Vitest 两种方式，可以参考 [Jest 配置项](https://jestjs.io/zh-Hans/docs/configuration) 在 `jest.config.js` 文件中配置测试选项，或者参考 [Vitest 配置项](https://vitest.dev/config/) 在 `vite.config.ts` 文件中进行配置。

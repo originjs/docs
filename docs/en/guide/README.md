@@ -8,6 +8,7 @@ This web application framework integrated some useful plugins and development to
 
 - [Vue3](https://v3.vuejs.org/) & [Vite2](https://vitejs.dev/)
 - [Vue i18n](https://kazupon.github.io/vue-i18n/) & [Vuex](https://vuex.vuejs.org/) intergrated
+- [Jest](https://jestjs.io/) or [Vitest](https://vitest.dev/) for Vue component testing
 - Global styles with css, sass, less or stylus
 - Auto-imported Vue components
 - File based routing and layouts
