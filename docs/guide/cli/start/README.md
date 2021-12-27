@@ -22,6 +22,46 @@ ori init [options] <app-name>
 
 指令选项 `-a / --all-plugins` 意味着创建一个使用默认配置下的版本和证书并且引入所有插件的项目，所以它必须与指令选项 `-d / --default` 同时使用，否则 CLI 将会抛出错误。创建一个默认引入全部插件的项目，应执行 `ori init -d -a <app-name>` 。
 
+## 配置插件
+
+在初始化一个应用时，有支持以下功能的 Vite 插件供你选择使用。对于那些被选中的插件，CLI 将会应用默认配置到 `vite.config.ts` 文件中。你也可以根据插件的配置文档来手动配置。
+
+### 全局样式
+
+支持自动引入 `assets` 目录内以 `global` 为开头命名的 `CSS`、`SASS`、`LESS`、`Stylus` 文件作为 Vite 全局样式。
+
+> 由 `@originjs/vite-plugin-global-style` 插件支持。更多内容查看 [vite-plugin-global-style](https://originjs.github.io/docs/guide/plugins/vite-plugin-global-style/)。
+
+### 路由及布局
+
+为 `pages` 目录中的 Vue 组件自动生成路由配置，同时支持布局。
+
+> 由 `@originjs/vite-plugin-pages` 插件支持。更多内容查看 [vite-plugin-pages](https://originjs.github.io/docs/guide/plugins/vite-plugin-pages/)。
+
+### 组件加载
+
+支持自动引入在 `components` 目录中定义的 Vue 组件。
+
+> 由 `vite-plugin-components` 插件支持。更多内容查看 [vite-plugin-components](https://github.com/antfu/vite-plugin-components)。
+
+### Markdown
+
+支持在页面中加载 `Markdown` 文件。
+
+> 由 `vite-plugin-md` 插件支持。更多内容查看 [vite-plugin-md](https://github.com/antfu/vite-plugin-md)。
+
+### 文件转换 
+
+支持将 `yaml`、`xml`、`xlsx`、`ini`、`toml`、`csv`、`plist` 和 `properties` 文件转换成 `ES6 modules` 。
+
+> 由 `@originjs/vite-plugin-content` 插件支持。更多内容查看 [vite-plugin-content](https://originjs.github.io/docs/guide/plugins/vite-plugin-content/)。
+
+### 模块联邦
+
+支持在当前应用中加载远程模块。
+
+> 由 `@originjs/vite-plugin-federation` 插件支持。更多内容查看 [vite-plugin-federation](https://originjs.github.io/docs/guide/plugins/vite-plugin-federation/)。
+
 ## 启动项目
 
 开发模式下，切换路径至你的项目根目录，并启动项目：
