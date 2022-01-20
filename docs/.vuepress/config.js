@@ -4,7 +4,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/assets/img/logo.png' }]
   ],
   description: 'Just playing around',
-  base: '/docs/',
+  base: '/',
   locales: {
     '/': {
       lang: 'zh-CN',
