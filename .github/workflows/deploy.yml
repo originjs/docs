@@ -22,11 +22,13 @@ jobs:
         run: |
           npm run docs:build
 
-      - name: Run deploy script
+      - name: Ddeploy github-pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          target_branch: gh-pages
+          repo: originjs/originjs.github.io
+          target_branch: main
           build_dir: docs/.vuepress/dist
+          fqdn: originjs.org
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DOCS_DEPLOY }}
