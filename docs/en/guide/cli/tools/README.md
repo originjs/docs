@@ -24,7 +24,7 @@ ori tovite [options]
 -h, --help               display help for command
 ```
 
-> For more details, see [webpack-to-vite](https://originjs.github.io/docs/en/guide/tools/webpack-to-vite/).
+> For more details, see [webpack-to-vite](https://originjs.org/en/guide/tools/webpack-to-vite/).
 
 ## Upgrade Vue2 to Vue3
 
@@ -48,4 +48,4 @@ ori tovue3 [options]
 -v, --version               Show version number                      [boolean]
 ```
 
-> For more details, see [vue-codemod](https://originjs.github.io/docs/en/guide/tools/vue-codemod/).
+> For more details, see [vue-codemod](https://originjs.org/en/guide/tools/vue-codemod/).

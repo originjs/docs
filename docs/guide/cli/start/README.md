@@ -1,6 +1,6 @@
 # 快速开始
 
-在开始使用之前，请确认你已经完成[安装](https://originjs.github.io/docs/installation.html)。接下来我们通过以下步骤，尝试创建一个新项目并启动和构建它。
+在开始使用之前，请确认你已经完成[安装](https://originjs.org/installation.html)。接下来我们通过以下步骤，尝试创建一个新项目并启动和构建它。
 
 ## 创建应用
 
@@ -33,13 +33,13 @@ ori init [options] <app-name>
 
 支持自动引入 `assets` 目录内以 `global` 为开头命名的 `CSS`、`SASS`、`LESS`、`Stylus` 文件作为 Vite 全局样式。
 
-> 由 `@originjs/vite-plugin-global-style` 插件支持。更多内容查看 [vite-plugin-global-style](https://originjs.github.io/docs/guide/plugins/vite-plugin-global-style/)。
+> 由 `@originjs/vite-plugin-global-style` 插件支持。更多内容查看 [vite-plugin-global-style](https://originjs.org/guide/plugins/vite-plugin-global-style/)。
 
 ### 路由及布局
 
 为 `pages` 目录中的 Vue 组件自动生成路由配置，同时支持布局。
 
-> 由 `@originjs/vite-plugin-pages` 插件支持。更多内容查看 [vite-plugin-pages](https://originjs.github.io/docs/guide/plugins/vite-plugin-pages/)。
+> 由 `@originjs/vite-plugin-pages` 插件支持。更多内容查看 [vite-plugin-pages](https://originjs.org/guide/plugins/vite-plugin-pages/)。
 
 ### 组件加载
 
@@ -57,13 +57,13 @@ ori init [options] <app-name>
 
 支持将 `yaml`、`xml`、`xlsx`、`ini`、`toml`、`csv`、`plist` 和 `properties` 文件转换成 `ES6 modules` 。
 
-> 由 `@originjs/vite-plugin-content` 插件支持。更多内容查看 [vite-plugin-content](https://originjs.github.io/docs/guide/plugins/vite-plugin-content/)。
+> 由 `@originjs/vite-plugin-content` 插件支持。更多内容查看 [vite-plugin-content](https://originjs.org/guide/plugins/vite-plugin-content/)。
 
 ### 模块联邦
 
 支持在当前应用中加载远程模块。
 
-> 由 `@originjs/vite-plugin-federation` 插件支持。更多内容查看 [vite-plugin-federation](https://originjs.github.io/docs/guide/plugins/vite-plugin-federation/)。
+> 由 `@originjs/vite-plugin-federation` 插件支持。更多内容查看 [vite-plugin-federation](https://originjs.org/guide/plugins/vite-plugin-federation/)。
 
 ## 启动项目
 
