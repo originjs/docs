@@ -24,7 +24,7 @@ ori tovite [options]
 -h, --help               显示指令帮助信息
 ```
 
-> 更多内容将在 [webpack-to-vite](https://originjs.github.io/docs/guide/tools/webpack-to-vite/) 中介绍。
+> 更多内容将在 [webpack-to-vite](https://originjs.org/guide/tools/webpack-to-vite/) 中介绍。
 
 ## Vue2 升级 Vue3
 
@@ -48,4 +48,4 @@ ori tovue3 [options]
 -v, --version               显示版本号               [boolean]
 ```
 
-> 更多内容将在 [vue-codemod](https://originjs.github.io/docs/guide/tools/vue-codemod/) 中介绍。
+> 更多内容将在 [vue-codemod](https://originjs.org/guide/tools/vue-codemod/) 中介绍。

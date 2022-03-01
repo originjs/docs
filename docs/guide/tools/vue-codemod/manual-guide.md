@@ -1,6 +1,6 @@
 # 手动迁移指导
 
-手动迁移之前，请先使用 [vue-codemod](https://github.com/originjs/vue-codemod) 工具进行自动转换。工具使用方法请参考 [使用指导](https://originjs.github.io/docs/guide/tools/vue-codemod/#transformation-rates) 。
+手动迁移之前，请先使用 [vue-codemod](https://github.com/originjs/vue-codemod) 工具进行自动转换。工具使用方法请参考 [使用指导](https://originjs.org/guide/tools/vue-codemod/#transformation-rates) 。
 
 本迁移手册是基于已经转换的项目中的实际遇到的问题进行总结的，在更多真实项目的转换过程中，可能会遇到其他问题，欢迎提交 [issue](https://github.com/originjs/vue-codemod/issues) 或者 [PR](https://github.com/originjs/vue-codemod/pulls) 进行贡献。
 

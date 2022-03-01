@@ -1,6 +1,6 @@
 # Getting start
 
-Before starting, make sure you have completed the [installation](https://originjs.github.io/docs/en/installation.html). Now let us try to create a new app and launch it by these steps.
+Before starting, make sure you have completed the [installation](https://originjs.org/en/installation.html). Now let us try to create a new app and launch it by these steps.
 
 ## Create a new app
 
@@ -33,13 +33,13 @@ You can choose the plugins as follows when initializing an application. CLI will
 
 Automatically add `CSS`, `SASS`, `LESS`, `Stylus` files in `assets` directory which named starting with `global` to the Vite global style.
 
-> Supported by `@originjs/vite-plugin-global-style` . See [vite-plugin-global-style](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-global-style/) .
+> Supported by `@originjs/vite-plugin-global-style` . See [vite-plugin-global-style](https://originjs.org/en/guide/plugins/vite-plugin-global-style/) .
 
 ### Layouts & Pages
 
 Automate generate route config for Vue components in `pages` directory, and support layouts in the same time.
 
-> Supported by `@originjs/vite-plugin-pages` . See [vite-plugin-pages](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-pages/) .
+> Supported by `@originjs/vite-plugin-pages` . See [vite-plugin-pages](https://originjs.org/en/guide/plugins/vite-plugin-pages/) .
 
 ### Components
 
@@ -57,13 +57,13 @@ Capability of loading markdown files in Vue components.
 
 Capability of converting `yaml`, `xml`, `xlsx`, `ini`, `toml`, `csv`, `plist` and `properties` files to `ES6 modules`.
 
-> Supported by `@originjs/vite-plugin-content` . See [vite-plugin-content](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-content/) .
+> Supported by `@originjs/vite-plugin-content` . See [vite-plugin-content](https://originjs.org/en/guide/plugins/vite-plugin-content/) .
 
 ### Module Federation
 
 Capability of loading remote modules in application.
 
-> Supported by `@originjs/vite-plugin-federation` . See [vite-plugin-federation](https://originjs.github.io/docs/en/guide/plugins/vite-plugin-federation/) .
+> Supported by `@originjs/vite-plugin-federation` . See [vite-plugin-federation](https://originjs.org/en/guide/plugins/vite-plugin-federation/) .
 
 ## Launch it
 

@@ -1,6 +1,6 @@
 # Manual Migration Guide
 
-Before manual migration, please make sure your project has been auto upgraded by [vue-codemod](https://github.com/originjs/vue-codemod). Please refer to the [User Guide](https://originjs.github.io/docs/en/guide/tools/vue-codemod/#transformation-rates) for using `vue-codemod`.
+Before manual migration, please make sure your project has been auto upgraded by [vue-codemod](https://github.com/originjs/vue-codemod). Please refer to the [User Guide](https://originjs.org/en/guide/tools/vue-codemod/#transformation-rates) for using `vue-codemod`.
 
 This manual migration guide is based on the actual problems encountered in the transformed project. Users could also encounter other problems in transforming their projects. It's welcomed for users to open an [issue](https://github.com/originjs/vue-codemod/issues) or [PR](https://github.com/originjs/vue-codemod/pulls).
 
