@@ -2,7 +2,7 @@
 home: true
 heroImage: /assets/img/logo.png
 heroText: Origin.js
-tagline: 简单而强大的 Vue.js 应用框架
+tagline: 简单而强大的 Vue.js 应用程序框架
 actionText: 快速上手 →
 actionLink: /guide/
 features:

@@ -2,11 +2,11 @@
 
 In addition to CLI for the web application framework, Origin.js also provides some utilities as follows:
 - Webpack to vite conversion tool
-- A migration tool from Vue2 to Vue3
+- A migration tool from Vue 2 to Vue 3
 
 ## Convert Webpack to Vite
 
-Origin.js supports converting a Webpack project to Vite project with tools `webpack-to-vite`, and it provides conversion details to help you convert smoothly.
+You can convert a Webpack project to Vite project with tools `webpack-to-vite`. It provides conversion details to help you convert smoothly.
 
 Execute this command to convert:
 
@@ -28,7 +28,7 @@ ori tovite [options]
 
 ## Upgrade Vue2 to Vue3
 
-Origin.js supports upgrading most of the Vue2 syntax to Vue3 syntax directly with tools `vue-codemod`. It provides vue-codemod transformation and a small amount of manual modification to complete the smooth migration.
+Origin.js supports upgrading most of the Vue 2 syntax to Vue 3 syntax directly with tools `vue-codemod`. It provides vue-codemod transformation and a small amount of manual modification to complete the smooth migration.
 
 Execute this command to migrate:
 
