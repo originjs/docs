@@ -26,13 +26,17 @@ yarn add @originjs/origin.js
 
 You need to clone `origin.js` directly from `GitHub` and build it yourself, if you want to use the latest dev build.
 
+> Origin.js uses `pnpm` as package manager. You should install `pnpm` first.
+
 ```bash
 # clone from github
 git clone https://github.com/originjs/origin.js.git node_modules/origin.js
 # change directory
 cd node_modules/origin.js
 # install dependencies
-npm install
+pnpm install
 # build
-npm run build
+pnpm run build
+# build cli package
+pnpm run build:cli
 ```
