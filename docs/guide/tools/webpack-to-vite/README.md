@@ -1,62 +1,57 @@
-# webpack-to-vite
-
-将 Webpack 项目转换为 Vite 项目的工具。
-
-> 该工具已被 Vue.js 官方收录，查看[详情](https://github.com/vitejs/awesome-vite#migrations)。
+# Webpack to Vite
+将 webpack 项目转换为 vite 项目。<br/>
+webpack-to-vite 已被官方收录，[详情](https://github.com/vitejs/awesome-vite#migrations)
 
 ## 快速开始
 
-直接通过 `npx` 使用:
+直接通过 npx 使用:
 
 ```
 $ npx @originjs/webpack-to-vite <project path>
 ```
 
-或者全局安装使用:
-
+...或者全局安装使用:
 ```
 $ npm install @originjs/webpack-to-vite -g
 $ webpack-to-vite <project path>
 ```
+> 注意：默认转换的是 vue-cli 项目。 传入 `-t webpack` 选项来转换 webpack 项目。
 
-> 注意：默认转换的是 vue-cli 项目，需要传入 `-t webpack` 选项来转换 Webpack 项目。
-
-## 指令选项
-
+## 选项
 该命令行工具提供以下选项：
-
 ```
--v, --version            显示版本号
--d --rootDir <path>      要转换的项目目录
--t --projectType <type>  项目类型，传入 vue-cli 或 webpack（默认：vue-cli）
--e --entry <type>        整个构建过程的入口，webpack 或 vite 会从那些入口文件开始构建，如果没有指定入口文件，则默认使用 src/main.ts 或 src/main.js
--h, --help               显示命令帮助
+$ webpack-to-vite --help
+  
+Usage: webpack-to-vite [options] [root]
+
+Options:
+  -v, --version            显示版本号
+  -d --rootDir <path>      要转换的项目目录
+  -t --projectType <type>  项目类型，传入 vue-cli 或 webpack（默认：vue-cli）
+  -e --entry <type>        整个构建过程的入口，webpack 或 vite 会从那些入口文件开始构建，如果没有指定入口文件，则默认使用 src/main.ts 或 src/main.js
+  -h, --help               显示命令帮助
 ```
 
 ## 成功转换的项目
 
-以下是使用该工具成功从 Webpack 项目转换为 Vite 项目的项目列表：
+以下是使用工具成功从 webpack 项目转换为 vite 项目的项目列表
 
 ### demos
-
 - [helloworld-vue2](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-vue2)
 - [helloworld-vue3](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-vue3)
 - [helloworld-webpack](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-webpack)
 
 ### vue-cli
-
 - [vue-manage-system](https://github.com/lin-xin/vue-manage-system) -> [vue-manage-system-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-manage-system-vite)
 - [newbee-mall-vue3-app](https://github.com/newbee-ltd/newbee-mall-vue3-app) -> [newbee-mall-vue3-app-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/newbee-mall-vue3-app-vite)
 - [vue-realworld-example-app](https://github.com/gothinkster/vue-realworld-example-app) -> [vue-realworld-example-app-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-realworld-example-app-vite)
 
 ### webpack
-
 - [vue-uploader](https://github.com/simple-uploader/vue-uploader) -> [vue-uploader-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/vue-uploader-vite)
 - [douban](https://github.com/jeneser/douban) -> [douban-vite](https://github.com/originjs/webpack-to-vite-demos/tree/main/douban-vite)
 
 ## 转换项
-
-以下是需要转换的配置项列表。
+以下是需要转换的配置项列表
 
 图例注解：
 
@@ -67,9 +62,8 @@ $ webpack-to-vite <project path>
 |❌|目前不支持|
 
 ### 基础转换项
-
 * ✅ B01: 在 `package.json` 中添加需要的 devDependencies 和 dependencies
-  * 必要的依赖：`vite-plugin-env-compatible`, `vite-plugin-html`, Vite,
+  * 必要的依赖：`vite-plugin-env-compatible`, `vite-plugin-html`, `vite`,
   * Vue2 项目需要的依赖：`vite-plugin-vue2`
   * Vue3 项目需要的依赖：`@vue/compiler-sfc`, `@vitejs/plugin-vue`, `@vitejs/plugin-vue-jsx`
 * ✅ B02: 将 vite 入口文件 `index.html` 添加到根目录
@@ -104,29 +98,29 @@ $ webpack-to-vite <project path>
   index.tsx:6 Uncaught ReferenceError: module is not defined
     at index.tsx:6
   ```
-
 * ⚠️ B10: CSS Modules
   * 在 vite 中，任何以 `.module.css` 为后缀名的 CSS 文件都被认为是一个 CSS modules 文件
   * 这意味着您需要将以 `.css` 为后缀的文件转换为以 `.module.css` 为后缀的文件来实现 CSS Modules
-* ⚠️ B11: 插件暴露的默认值
-  * 当 `index.html` 包含 `htmlWebpackPlugin.options.variableName` 时，会出现 `htmlWebpackPlugin is not defined` 错误，您需要在 `vite.config.js` 中添加插件选项：
-
-  ```
+* ✅ B11: `html-webpack-plugin` 支持
+  * 插件选项将被应用至 `vite-plugin-html` 插件
+  * 注入到 `index.html` 中的变量将被转换。例如，`<%= htmlWebpackPlugin.options.title %>` -> `<%= title %>`
+  * 从 `html-webpack-plugin` 中引用 `injectHtml` 和 `minifyHtml` 并且配置选项：
+  ```js
   plugins: [
-    injectHtml:({
-      injectData: {
-        htmlWebpackPlugin: {
-          options: {
-            variableName: value
-          }
-        }
+    injectHtml({
+      data: {
+        title: value
       }
+    }),
+    minifyHtml({
+      minifyCss: true
     })
   ]
   ```
 
 ### Vue-CLI 转换项
-> Vue-CLI 转换是将 `vue.config.js` 中的配置，转换后设置到 `vite.config.js` 中。
+> Vue-CLI 转换是将 `vue.config.js` 中的配置，转换后设置到 `vite.config.js` 中
+
 * ✅ V01: public path 环境变量
 
 * `process.env.PUBLIC_URL` 或 `publicPath` 或 `baseUrl` -> `base`
@@ -161,7 +155,6 @@ $ webpack-to-vite <project path>
     ]
   }
   ```
-
   * webpack 中的 alias 配置也会按照类似的方式进行转换
 
 * ✅ V06: 客户端环境变量
@@ -182,9 +175,7 @@ $ webpack-to-vite <project path>
     }
   }
   ```
-
   ->
-
   ```javascript
   css: {
     preprocessorOptions: {
@@ -194,19 +185,23 @@ $ webpack-to-vite <project path>
     }
   }
   ```
+* ✅ V08: 转换函数形式的 webpack 配置
+  * `vue.config.js` 模块中的 `webpackConfigure` 和 `chainWebpack` 选项可以定义为对象或者函数
+  * 为了避免在调用这些函数时报错，我们按需初始化 `config` 选项，并且生成一个临时文件(`vue.temp.config.js`)来重新配置 `html-webpack-plugin`
 
 ### Webpack 转换项
+> Webpack 转换是将`webpack.config.js` 或 `webpack.base.js/webpack.dev.js/webpack.prod.js` 或 `webpack.build.js/webpack.production.js` 中的配置，转换后设置到 `vite.config.js` 中
 
-> Webpack 转换是将`webpack.config.js` 或 `webpack.base.js/webpack.dev.js/webpack.prod.js` 或 `webpack.build.js/webpack.production.js` 中的配置，转换后设置到 `vite.config.js` 中。
-
-> 注意：如果您没有在上述文件中进行 webpack 配置，那么工具将无法进行配置转换，您需要手工配置。
+> 注意：如果您没有在上述文件中进行 webpack 配置，那么工具将无法进行配置转换，您需要手工配置
 
 * ✅ W01: 构建入口配置
   * 如果 `entry` 类型是 `string` ，`entry` -> `build.rollupOptions.input`
   * 如果 `entry` 类型是 `object` ，则将 object 中的每条属性配置到 `build.rollupOptions.input` 中
   * 如果 `entry` 类型是 `function` ，则将 function 的运行结果配置到 `build.rollupOptions.input` 中
-* ✅ W02: outDir 配置
+* ✅ W02: output 配置
   * `output.path` -> `build.outDir`
+  * `output.filename` -> `build.rollupOptions.output.entryFileNames`
+  * `output.chunkFilename` -> `build.rollupOptions.output.chunkFileNames`
 * ✅ W03: `resolve.alias` 配置
   * 添加默认 alias 配置
 
@@ -217,7 +212,6 @@ $ webpack-to-vite <project path>
     ]
   }
   ```
-
   * webpack 配置的其他别名也会按照上述格式进行转换
   * 以 `$` 结尾的 `resolve.alias` 配置，需要删除 `$` 并配置为确切的值
 * ✅ W04: server 配置
@@ -226,14 +220,11 @@ $ webpack-to-vite <project path>
   * `new webpack.DefinePlugin()` -> `define`
   
 ### 其他转换项
-
 * ⚠️ O01: 使用 CommonJS 规范语法，例如 `require('./')`
   * 添加 vite 插件 `@originjs/vite-plugin-commonjs` ，参阅[这里](https://github.com/originjs/vite-plugins/tree/main/packages/vite-plugin-commonjs)
   * 请注意该插件只支持部分 CommonJS 规范语法，这意味着一些语法是不支持的，您需要手动转换为 ES Modules 规范语法
-  * 转换动态 require(例如：`require('@assets/images/' + options.src)`)，你可以参考以下步骤：
-
+  * 转换动态 require(例如：`require('@assets/images/' + options.src)`)，你可以参考以下步骤
   1. 使用 Web API `new URL`
-
   ```vue
   <template>
   <img alt="" :src="imgSrc" />
@@ -247,11 +238,8 @@ $ webpack-to-vite <project path>
   }
   </script>
   ```
-
-  或使用 Vite 的 API `import.meta.glob`
-
+  ...或使用 Vite 的 API `import.meta.glob`
   1. 创建一个模型保存已导入的模块,使用异步方法动态地导入模块并更新到模型中
-
   ```js
   // src/store/index.js
   import Vue from 'vue'
@@ -280,9 +268,7 @@ $ webpack-to-vite <project path>
     }
   })
   ```
-
   2. 在 `.vue` 单文件组件中使用
-
   ```js
   // img1.vue
   <template>
@@ -306,7 +292,6 @@ $ webpack-to-vite <project path>
   }
   </script>
   ```
-
 * ❌ O02: 对于 `Element-UI` ，参阅[这里](https://github.com/vitejs/vite/issues/3370)
 
   ```
@@ -322,7 +307,6 @@ $ webpack-to-vite <project path>
     at Object.5 (:8080/node_modules/.vite/element-ui.js?v=675d2c77:6861)
     at __webpack_require__ (:8080/node_modules/.vite/element-ui.js?v=675d2c77:6547)
   ```
-
 * ⚠️ O03: 包含多个别名的导入，如：`@import '~@/styles/global.scss'`，同时包含了别名 `~` 和 `@`
   * 您可以添加别名配置 `{ find: /^~@/, replacement: path.resolve(__dirname, 'src') }` 到 `resolve.alias` 配置中，并且把该项配置移到别名配置中的第一项
 * ⚠️ O04: 在 `.vue` 文件中使用 `jsx` 语法
@@ -351,7 +335,6 @@ $ webpack-to-vite <project path>
       at TraversalContext.visitQueue (/Users/Chieffo/Documents/project/Vue-mmPlayer/node_modules/@babel/traverse/lib/context.js:99:16)
       at TraversalContext.visitSingle (/Users/Chieffo/Documents/project/Vue-mmPlayer/node_modules/@babel/traverse/lib/context.js:73:19)
   ```
-
   您可以尝试更新 `babel.config.js` 配置文件，如下：
 
   ```javascript
@@ -369,9 +352,7 @@ $ webpack-to-vite <project path>
     ]
   }
   ```
-
   参阅[这里](https://vuejs.org/v2/guide/render-function.html#JSX)
-
 * ⚠️ O05: 对于 Webpack 语法 `require.context`
   * 添加 vite 插件 `@originjs/vite-plugin-require-context` ，参阅[这里](https://github.com/originjs/vite-plugins/tree/main/packages/vite-plugin-require-context)
 * ✅ O06: 我们修复了错误 'Compiling error when the template of the .vue file has the attribute lang="html"'
@@ -386,7 +367,37 @@ $ webpack-to-vite <project path>
   ```javascript
   () => import('./components/views/test.vue')
   ```
-
 * ⚠️ O09：如果您遇到构建错误 `[rollup-plugin-dynamic-import-variables] Unexpected token`，则需要删除 `<img>` 标签中的空属性 `srcset` 或 `srcset=""`
 * ⚠️ O10: Vite 无法解析一些静态资源，如`.PNG`，你可以把它放在 `assetsInclude` 选项中，比如 `assetsInclude: ['**.PNG']`
 * ⚠️ O11：支持 `.md` markdown 文件作为 vue 组件，需要添加 [`vite-plugin-md`](https://github.com/antfu/vite-plugin-md) 插件
+* ⚠️ O12: 该错误 `Uncaught ReferenceError: global is not defined`, 参阅[这里](https://github.com/vitejs/vite/issues/2618#issuecomment-820919951)
+  * > 作为参考，如果您只需要垫片 global，您可以将`<script>window.global = window;</script>`添加到您的`index.html`中
+* ⚠️ O13: 支持将SVG文件作为Vue组件加载
+  * ... 或遇到以下错误时
+  ```
+  Uncaught (in promise) DOMException: Failed to execute 'createElement' on 'Document': The tag name provided ('/@fs/D:/project/example/node_modules/@example/example.svg') is not a valid name.
+  ```
+  * 添加 [`vite-svg-loader`](https://github.com/jpkleemans/vite-svg-loader) 插件用于 **vue** 项目
+  * 添加 [`vite-plugin-svgr`](https://www.npmjs.com/package/vite-plugin-svgr) 插件用于 **react** 项目
+* ⚠️ O14: 修复以下错误
+  ```
+  [Vue warn]: Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".
+  ```
+  * 您需要设置别名，如下所示
+  ```javascript
+  resolve: {
+    alias: [
+      { find: 'vue', replacement: 'vue/dist/vue.esm-bundler.js' }
+    ]
+  }
+  ```
+* ⚠️ O15: 出于以下原因，您可能需要安装 [`vite-plugin-optimize-persist`](https://github.com/antfu/vite-plugin-optimize-persist) 插件
+  > Vite 的依赖预构建是很酷的，大大地提升了开发体验。虽然 Vite 可以智能地检测动态依赖关系，但它的按需检测行为有时会使复杂项目的启动相当缓慢。
+  ```
+  [vite] new dependencies found: @material-ui/icons/Dehaze, @material-ui/core/Box, @material-ui/core/Checkbox, updating...
+  [vite] ✨ dependencies updated, reloading page...
+  [vite] new dependencies found: @material-ui/core/Dialog, @material-ui/core/DialogActions, updating...
+  [vite] ✨ dependencies updated, reloading page...
+  [vite] new dependencies found: @material-ui/core/Accordion, @material-ui/core/AccordionSummary, updating...
+  [vite] ✨ dependencies updated, reloading page...
+  ```

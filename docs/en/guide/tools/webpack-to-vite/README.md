@@ -1,8 +1,8 @@
-# webpack-to-vite
+# Webpack to Vite
 
-Convert a Webpack project to a Vite project.
+Convert a webpack project to a vite project.
 
-> It has been offically included, [detail](https://github.com/vitejs/awesome-vite#migrations).
+It has been offically included, [detail](https://github.com/vitejs/awesome-vite#migrations)
 
 ## Quick Start
 
@@ -12,33 +12,34 @@ Use it directly with npx:
 $ npx @originjs/webpack-to-vite <project path>
 ```
 
-or install it globally:
-
+...or install it globally:
 ```
 $ npm install @originjs/webpack-to-vite -g
 $ webpack-to-vite <project path>
 ```
 
-> Note: the default conversion is vue-cli project. Pass in the `-t webpack` option to convert a Webpack project.
+> Note: the default conversion is vue-cli project. Pass in the `-t webpack` option to convert a webpack project.
 
 ## Options
-
 The CLI provides the following options:
-
 ```
--v, --version            display version number
--d --rootDir <path>      the directory of project to be converted
--t --projectType <type>  the type of the project, use vue-cli or webpack (default: vue-cli)
--e --entry <type>        entrance of the entire build process, webpack or vite will start from those entry files to build, if no entry file is specified, src/main.ts or src/main.js will be used as default
--h, --help               display help for command
+$ webpack-to-vite --help
+  
+Usage: webpack-to-vite [options] [root]
+
+Options:
+  -v, --version            display version number
+  -d --rootDir <path>      the directory of project to be converted
+  -t --projectType <type>  the type of the project, use vue-cli or webpack (default: vue-cli)
+  -e --entry <type>        entrance of the entire build process, webpack or vite will start from those entry files to build, if no entry file is specified, src/main.ts or src/main.js will be used as default
+  -h, --help               display help for command
 ```
 
 ## Awesome projects successfully converted
 
-The following is a list of projects that successfully converted from a webpack Project to a Vite project using the tool.
+The following is a list of projects that successfully converted from a webpack project to a vite project using the tool
 
 ### demos
-
 - [helloworld-vue2](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-vue2)
 - [helloworld-vue3](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-vue3)
 - [helloworld-webpack](https://github.com/originjs/webpack-to-vite-demos/tree/main/helloworld-webpack)
@@ -56,7 +57,7 @@ The following is a list of projects that successfully converted from a webpack P
 
 ## Conversion items
 
-The following is a list of configuration items that need to convert.
+The following is a list of configuration items that need to convert
 
 Legend of annotations:
 
@@ -67,7 +68,6 @@ Legend of annotations:
 |❌|not support now|
 
 ### Base conversion
-
 * ✅ B01: add necessary devDependencies and dependencies in `package.json`
   * necessary: `vite-plugin-env-compatible`, `vite-plugin-html`, `vite`,
   * necessary for Vue2: `vite-plugin-vue2`
@@ -105,25 +105,26 @@ Legend of annotations:
 * ⚠️ B10: CSS Modules
   * In vite, any CSS files ending with `.module.css` is considered a CSS modules file
   * That means you need to covert files with extension of `.css` to files with extension of `.module.css` to implement CSS Modules
-* ⚠️ B11: default values exposed by plugins
-  * The error `htmlWebpackPlugin is not defined` may occur if `index.html` includes `htmlWebpackPlugin.options.variableName`. You need to add a plugin in `vite.config.js` like this:
+* ✅ B11: `html-webpack-plugin` is supported
+  * Options will be applied to plugin `vite-plugin-html`
+  * Variables injected to `index.html` will be transformed. for example, `<%= htmlWebpackPlugin.options.title %>` -> `<%= title %>`
+  * Import `injectHtml` and `minifyHtml` from `html-webpack-plugin` and use them like this:
   ```js
   plugins: [
-    injectHtml: ({
-      injectData: {
-        htmlWebpackPlugin: {
-          options: {
-            variableName: value
-          }
-        }
+    injectHtml({
+      data: {
+        title: value
       }
+    }),
+    minifyHtml({
+      minifyCss: true
     })
   ]
   ```
 
 ### Vue-CLI conversion
+> Vue-CLI conversion is based on `vue.config.js`. Configurations will be transformed and written to `vite.config.js`
 
-> Vue-CLI conversion is based on `vue.config.js`. Configurations will be transformed and written to `vite.config.js`. 
 * ✅ V01: base public path
   * `process.env.PUBLIC_URL` or `publicPath` or `baseUrl` -> `base`
 * ✅ V02: css options
@@ -181,16 +182,23 @@ Legend of annotations:
     }
   }
   ```
+* ✅ V08: transform functional webpack config
+  * The `webpackConfigure` and `chainWebpack` options could be defined as object or function in `vue.config.js` module
+  * To avoid calling error when they were functional, we initialize config options and generate a temporary file (`vue.temp.config.js`) to reconfig `html-webpack-plugin`
   
 ### Webpack conversion
-> Webpack conversion is based on `webpack.config.js` or `webpack.base.js/webpack.dev.js/webpack.prod.js` or `webpack.build.js/webpack.production.js`, map configuration to `vite.config.js`.
-> Note: if you are not using configuration files above, you need to convert configurations manually.
+> Webpack conversion is based on `webpack.config.js` or `webpack.base.js/webpack.dev.js/webpack.prod.js` or `webpack.build.js/webpack.production.js`, map configuration to `vite.config.js`
+
+> Note: if you are not using configuration files above, you need to convert configurations manually
+
 * ✅ W01: build entry options
   * if `entry` is `string` type: `entry` -> `build.rollupOptions.input`
   * if `entry` is `object` type: the properties of `entry` will be converted set to `build.rollupOptions.input`
   * if `entry` is `function` type: execute result of `entry` will be set to `build.rollupOptions.input`
-* ✅ W02: `outDir` options
+* ✅ W02: `output` options
   * `output.path` -> `build.outDir`
+  * `output.filename` -> `build.rollupOptions.output.entryFileNames`
+  * `output.chunkFilename` -> `build.rollupOptions.output.chunkFileNames`
 * ✅ W03: `resolve.alias` options
   * add alias options by default
   ```javascript
@@ -211,7 +219,7 @@ Legend of annotations:
 * ⚠️ O01: for CommonJS syntax, e.g. `require('./')`
   * you can use vite plugin `@originjs/vite-plugin-commonjs`, see also [here](https://github.com/originjs/vite-plugins/tree/main/packages/vite-plugin-commonjs).
     Please note that the plugin only supports part of CommonJS syntax. That means some syntax is not supported. You need to covert them to ES Modules syntax manually
-  * convert dynamic require(e.g. `require('@assets/images/' + options.src)`), you can refer to the following steps:
+  * convert dynamic require(e.g. `require('@assets/images/' + options.src)`), you can refer to the following steps
   1. use Web API `new URL`
   ```vue
   <template>
@@ -354,3 +362,34 @@ Legend of annotations:
 * ⚠️ O09: if you encountered build error `[rollup-plugin-dynamic-import-variables] Unexpected token`, you need to remove empty attr `srcset` or `srcset=""` in `<img>` label.
 * ⚠️ O10: Vite can't resolve some static asset, e.g. `.PNG`, you can put it in `assetsInclude` option like `assetsInclude: ['**.PNG']`
 * ⚠️ O11: support `.md` markdown file as vue component, you need to add [`vite-plugin-md`](https://github.com/antfu/vite-plugin-md) plugin.
+* ⚠️ O12: The error `Uncaught ReferenceError: global is not defined`, see also [here](https://github.com/vitejs/vite/issues/2618#issuecomment-820919951)
+  * > For reference, if you only need to shim global, you can add `<script>window.global = window;</script>` to your `index.html`
+* ⚠️ O13: Support load SVG files as Vue components
+  * ... or when the following error is encountered
+  ```
+  Uncaught (in promise) DOMException: Failed to execute 'createElement' on 'Document': The tag name provided ('/@fs/D:/project/example/node_modules/@example/example.svg') is not a valid name.
+  ```
+  * add [`vite-svg-loader`](https://github.com/jpkleemans/vite-svg-loader) plugin for **vue** project
+  * add [`vite-plugin-svgr`](https://www.npmjs.com/package/vite-plugin-svgr) plugin for **react** project
+* ⚠️ O14: Fix the following errors
+  ```
+  [Vue warn]: Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".
+  ```
+  * you need to set the alias as follows
+  ```javascript
+  resolve: {
+    alias: [
+      { find: 'vue', replacement: 'vue/dist/vue.esm-bundler.js' }
+    ]
+  }
+  ```
+* ⚠️ O15: You may need to install the [`vite-plugin-optimize-persist`](https://github.com/antfu/vite-plugin-optimize-persist) plugin for the following reasons
+  > Vite's dependencies pre-optimization is cool and can improve the DX a lot. While Vite can smartly detect dynamic dependencies, it's on-demanded natural sometimes make the booting up for complex project quite slow.
+  ```
+  [vite] new dependencies found: @material-ui/icons/Dehaze, @material-ui/core/Box, @material-ui/core/Checkbox, updating...
+  [vite] ✨ dependencies updated, reloading page...
+  [vite] new dependencies found: @material-ui/core/Dialog, @material-ui/core/DialogActions, updating...
+  [vite] ✨ dependencies updated, reloading page...
+  [vite] new dependencies found: @material-ui/core/Accordion, @material-ui/core/AccordionSummary, updating...
+  [vite] ✨ dependencies updated, reloading page...
+  ```
