@@ -1,6 +1,6 @@
 # Origin.js 是什么
 
-Origin.js 是一个简单而强大的 Web 应用框架，提供一套基于 Vue.js 的完整 Web 项目解决方案，让开发者更加专注于业务逻辑的开发。
+Origin.js 是一个简单而强大的 Web 应用程序框架，提供一套基于 Vue.js 的完整 Web 项目解决方案，让开发者更加专注于业务逻辑的开发。
 
 ## 特性
 
@@ -21,4 +21,4 @@ Origin.js 集成实用的插件和开发工具，支持如下特性，使得编�
 
 ## 示例
 
-你可以通过 [Vue3 project demo](https://github.com/originjs/origin.js/tree/main/examples/vue3) 试用 Origin.js 提供的插件，参考项目模板 [Origin.js templates](https://github.com/konpeki622/origin-demo) 快速了解使用 Origin.js CLI 创建的初始应用的结构。
+你可以通过 [Vue3 project demo](https://github.com/originjs/origin.js/tree/main/examples/vue3) 试用 Origin.js 提供的插件，参考项目模板 [Origin.js templates](https://github.com/konpeki622/origin-demo) 快速了解使用 Origin.js CLI 创建的初始应用程序的结构。

@@ -2,11 +2,11 @@
 
 除了 Web 应用框架的脚手架之外，Origin.js 还集成了如下工具：
 - Webpack 到 Vite 的转换工具
-- Vue2 升 Vue3 的迁移工具
+- Vue 2 升 Vue 3 的迁移工具
 
 ## Webpack 转换 Vite
 
-Origin.js 提供 `webpack-to-vite` 工具，支持 Webpack 项目到 Vite 项目的一键转换，并且展示详细的转换过程来辅助转换顺利进行。
+你可以使用 `webpack-to-vite` 工具，对 Webpack 项目一键转换到 Vite 项目。该工具展示详细的迁移信息，协助迁移顺利进行。
 
 使用指令进行转换：
 
@@ -28,7 +28,7 @@ ori tovite [options]
 
 ## Vue2 升级 Vue3
 
-Origin.js 提供 `vue-codemod` 工具，支持 Vue2 项目到 Vue3 项目的一键转换。工具能够将绝大多数 Vue2 语法直接升级成 Vue3 语法，配合少量的手动修改完成 Vue2 到 Vue3 的平滑迁移。
+Origin.js 提供 `vue-codemod` 工具，支持 Vue 2 项目到 Vue 3 项目的一键转换。工具能够将绝大多数 Vue 2 语法直接升级成 Vue 3 语法，配合少量的手动修改完成 Vue 2 到 Vue 3 的平滑迁移。
 
 使用指令进行转换：
 

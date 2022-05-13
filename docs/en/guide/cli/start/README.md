@@ -1,18 +1,18 @@
 # Getting start
 
-Before starting, make sure you have completed the [installation](https://originjs.org/en/installation.html). Now let us try to create a new app and launch it by these steps.
+Before starting, please make sure you have completed the [installation](https://originjs.org/en/installation.html). Now let us try to create a new application and launch it.
 
 ## Create a new app
 
-If you want to create a new web application and initialize it, you should run:
+To create an Origin.js application, just run:
 
 ```shell
 ori init [options] <app-name>
 ```
 
-There are some prompts so that you can define the version, license, test framework and plugins of the project. The Origin.js application will be based on Vue3 and Vite2, and the initial files will be generated according to your definition. 
+There are some options for you to define the version, license, type of store, test framework and plugins for the project. An Origin.js application will be based on Vue 3 and Vite 2, and the project files will be generated according to your configuration.
 
-The project dependencies will be installed before initialization finished, so you can launch it directly.
+The initialization finished means that dependencies have been installed, so you can [launch it](https://originjs.org/en/guide/cli/start/#launch-it) directly.
 
 ### Options
 
@@ -23,11 +23,11 @@ The project dependencies will be installed before initialization finished, so yo
 -h, --help         display help for command
 ```
 
-The option `-a / --all-plugins` specifies that it will create a new app with default configuration and all of the plugins will be imported. So once it was used, `-d / --default` must be used simultaneously. Otherwise some error will be thrown. In other words, if some apps would be created with all plugins defaultly, you should execute `ori init -d -a <app-name>`.
+Notice: The option `-a/--all-plugins` specifies that the project will be created with default configuration and import all of the plugins. Once it was used, `-d/--default` must be used simultaneously, otherwise some error will be thrown. In other words, if an application would be created with all plugins defaultly, you should execute `ori init -d -a <app-name>`.
 
 ## Plugins
 
-You can choose the plugins as follows when initializing an application. CLI will apply the default configurations to `vite.config.ts` for those plugins you selected. You can also refer to their documentations to config the plugins manually.
+Plugins as follows could be chosed when initializing an application. Default configuration for those plugins you selected will be applied to `vite.config.ts`. You can also refer to their documentations to config these plugins manually.
 
 ### GlobalStyle
 
@@ -37,7 +37,7 @@ Automatically add `CSS`, `SASS`, `LESS`, `Stylus` files in `assets` directory wh
 
 ### Layouts & Pages
 
-Automate generate route config for Vue components in `pages` directory, and support layouts in the same time.
+Automatically generate route config for Vue components in `pages` directory, support layouts in the same time.
 
 > Supported by `@originjs/vite-plugin-pages` . See [vite-plugin-pages](https://originjs.org/en/guide/plugins/vite-plugin-pages/) .
 
@@ -67,22 +67,22 @@ Capability of loading remote modules in application.
 
 ## Launch it
 
-For development, just change path into your project root directory and launch it:
+For development, change path into your project root directory and launch it:
 
 ```shell
 cd <app-name>
 npm run dev  #yarn dev
 ```
 
-Then you can debug your project in the browser. The Vite server will execute lightning fast HMR when you update the page files.
+Then you can debug your project in the browser. Vite server will execute lightning fast HMR when you update the page files.
 
-Origin.js also provides command to create a Vite server. It might support creating Webpack server as well in the future.
+Origin.js is also able to create Vite server. It might support creating Webpack server as well in the future.
 
 ```shell
 ori dev [options]
 ```
 
-The server is based on Vite, so you can set [Vite server options](https://vitejs.dev/config/#server-host) in `vite.config.ts` to config your server.
+Server is based on Vite, so you can set [Vite server options](https://vitejs.dev/config/#server-host) in `vite.config.ts` to config your server.
 
 ### Options
 
@@ -93,28 +93,26 @@ The server is based on Vite, so you can set [Vite server options](https://vitejs
 
 ## Build
 
-For production, building the package:
+For production, build packages:
 
 ```shell
 npm run build  #yarn build
 ```
 
-You can also use our Origin.js command, which called Vite bundler. It might support Webpack bundler as well in the future.
+You can also use Origin.js command, which called Vite bundler. It might support Webpack bundler as well in the future.
 
 ```shell
 ori build
 ```
 
-The bundler is based on Vite, so you can set [Vite build options](https://vitejs.dev/config/#build-target) in `vite.config.ts` to config building to satisfy your demand.
+Bundler is based on Vite, so you can set [Vite build options](https://vitejs.dev/config/#build-target) in `vite.config.ts` to config building.
 
 ## Test
 
-If the test framework is used, the project file will contain test cases for the Vue component, to run the tests:
+If a test framework is used, the project file will contain test use cases for the Vue component. To run test:
 
 ```shell
 npm run test  #yarn test
 ```
 
-The test result defaultly shows the coverage of the test case.
-
-Origin.js provides both Jest and Vitest for testing. By referencing [Jest Configuration](https://jestjs.io/zh-Hans/docs/configuration) to configure test options in `jest.config.js`, or [Vitest Configuration](https://vitest.dev/config/) to configure in `vite.config.ts`.
+Origin.js supports both Jest and Vitest for testing. By referencing [Jest Configuration](https://jestjs.io/zh-Hans/docs/configuration) configure test options in `jest.config.js`, or by referencing [Vitest Configuration](https://vitest.dev/config/) configure in `vite.config.ts`.
